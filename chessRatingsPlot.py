@@ -25,12 +25,12 @@ for i in findRatings:
 
   
 pylab.xkcd() #for styling
-pylab.scatter(range(len(ratings)), ratings)
+pylab.scatter(range(1, len(ratings)+1), ratings)
 
 #annotate highest rating
 pylab.annotate(worldNumOne +' - ' +str(ratings[0]), xy = (0, ratings[0]), xytext = (10, 2870), \
 bbox = dict(boxstyle = 'round,pad=0.3', fc = 'yellow', alpha = 0.5), \
-arrowprops = dict(arrowstyle = '->', connectionstyle = 'arc3,rad=0', shrinkB=10))
+arrowprops = dict(arrowstyle = '->', connectionstyle = 'arc3,rad=0', shrinkB=15))
 
 pylab.xlabel("World Rank")
 pylab.ylabel("FIDE Rating")
