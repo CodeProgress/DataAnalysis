@@ -1,0 +1,1601 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+
+
+
+
+
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="en-us">
+
+
+
+
+
+<!--php
+header("HTTP/1.1 301 Moved Permanently");
+header("Location: http://www.chessbase.de");
+exit();-->
+
+
+
+
+
+<title>Live Chess Ratings - 2700chess.com</title>
+
+
+
+
+<meta name="keywords" content= "Live Chess Ratings for 2700 elo players. You may review all latest games played by top 
+players, download these games (PGN), follow big chess tournamnets, get a "live" banner for 
+TOP 10 chess players in the world. FIDE blitz and rapid ratings, twitter follow @2700chess, 
+live games." >
+	
+<meta name="description" content= "Live Chess Ratings for 2700 elo players. You may review all latest games played by top 
+players, download these games (PGN), follow big chess tournamnets, get a "live" banner for 
+TOP 10 chess players in the world. FIDE blitz and rapid ratings, twitter follow @2700chess, 
+live games." >
+
+<meta name="language" content="en-us">	
+
+
+<meta name="google" content="notranslate" />
+
+
+
+
+
+<link href="common.css" rel="stylesheet" type="text/css" />
+
+<link rel="shortcut icon" href="icon.gif">
+
+</head>
+
+
+<body leftmargin="0" rightmargin="0" topmargin="0">
+
+
+
+
+
+
+<table  class="table_head" cellspacing=0 cellpadding=0  border="0" width=100% height="100%">
+
+<tr valign=top>
+<td align=center>
+
+
+
+
+
+
+<a href="http://www.2700chess.com" target="_self"><img border="0" src="http://www.2700chess.com/header.jpg" alt= "Live Chess Ratings - 2700chess.com" title=""/></a>
+
+
+
+<br>
+</td></tr></table>
+
+
+
+
+<table align=center width=1024 backgroundColor="cccc99">
+<tr valign=top >
+<td width="724 px" >
+
+ <font id="last_update" size=4 face=verdana> Last update: 15 September 2013, 21:10 GMT</font>         
+
+<table class="table_ratings" id="chess_raiting" width=700 cellspacing="1" cellpadding="0">
+            
+<thead>
+
+<tr>
+                
+
+<td id="player_number">#</td>
+                
+<td>
+	<img src="img/up.gif" alt=""/><img src="img/down.gif" alt=""/>
+</td>
+
+<td>Name</td>
+                
+
+<td id="country">  </td>
+                
+
+<td>Rating</td>
+                
+
+<td>+/&minus;</td>
+                
+
+<td id="stat"> </td>
+
+
+<td id="games">Games</td>
+                
+
+<td>FIDE</td>
+                
+
+<td>Age</td>
+            
+
+</tr>
+</thead>
+
+<tbody>
+
+        
+
+
+<tr class="leaders" align="center">
+
+<td>1</td>
+<td><span style="color:#000;"> </span></td>
+
+<td align=left style="padding:0px 0px 0px 10px;"><a class="link_name" href="http://en.wikipedia.org/wiki/Magnus_Carlsen" target="_self">Carlsen</a></td>
+
+<td><img src="countries/Norway.gif" alt="Norway" title="Norway"/></td>
+
+<td><b>2870.0</b></td>
+
+<td align=right style="padding:0px 10px 0px 0px;"><span style="color:#006600;">+8.0</span></td>
+<td><a href="glass.php?statistic=2"><img src="img/stat.jpeg" alt="" width="20px" border="0"/></a></td>
+
+<td>6</td>
+
+<td><a href="http://ratings.fide.com/id.phtml?event=1503014" target="_self"><img alt="" src="img/rating_fide.png" border="0"/></a><br/></td>
+
+<td>22 <font size=2><b>(30.11.1990)</b></font></td></tr>
+
+
+<tr class="leaders" align="center">
+
+<td>2</td>
+<td><img src="img/up.gif" alt=""/><span style="color:#006600;"> 1</span></td>
+
+<td align=left style="padding:0px 0px 0px 10px;"><a class="link_name" href="http://en.wikipedia.org/wiki/Vladimir_Kramnik" target="_self">Kramnik</a></td>
+
+<td><img src="countries/Russia.gif" alt="Russia" title="Russia"/></td>
+
+<td><b>2796.4</b></td>
+
+<td align=right style="padding:0px 10px 0px 0px;"><span style="color:#006600;">+2.4</span></td>
+<td><a href="glass.php?statistic=4"><img src="img/stat.jpeg" alt="" width="20px" border="0"/></a></td>
+
+<td>16</td>
+
+<td><a href="http://ratings.fide.com/id.phtml?event=4101588" target="_self"><img alt="" src="img/rating_fide.png" border="0"/></a><br/></td>
+
+<td>38 <font size=2><b>(25.06.1975)</b></font></td></tr>
+
+
+<tr class="leaders" align="center">
+
+<td>3</td>
+<td><img src="img/down.gif" alt=""/><span style="color:#cc0000;"> 1</span></td>
+
+<td align=left style="padding:0px 0px 0px 10px;"><a class="link_name" href="http://en.wikipedia.org/wiki/Levon_Aronian" target="_self">Aronian</a></td>
+
+<td><img src="countries/Armenia.gif" alt="Armenia" title="Armenia"/></td>
+
+<td><b>2795.4</b></td>
+
+<td align=right style="padding:0px 10px 0px 0px;"><span style="color:#cc0000;">&minus;17.6</span></td>
+<td><a href="glass.php?statistic=1"><img src="img/stat.jpeg" alt="" width="20px" border="0"/></a></td>
+
+<td>12</td>
+
+<td><a href="http://ratings.fide.com/id.phtml?event=13300474" target="_self"><img alt="" src="img/rating_fide.png" border="0"/></a><br/></td>
+
+<td>30 <font size=2><b>(06.10.1982)</b></font></td></tr>
+
+
+<tr class="top_ten" align="center">
+
+<td>4</td>
+<td><span style="color:#000;"> </span></td>
+
+<td align=left style="padding:0px 0px 0px 10px;"><a class="link_name" href="http://en.wikipedia.org/wiki/Alexander_Grischuk" target="_self">Grischuk</a></td>
+
+<td><img src="countries/Russia.gif" alt="Russia" title="Russia"/></td>
+
+<td><b>2785.8</b></td>
+
+<td align=right style="padding:0px 10px 0px 0px;"><span style="color:#006600;">+0.8</span></td>
+<td><a href="glass.php?statistic=9"><img src="img/stat.jpeg" alt="" width="20px" border="0"/></a></td>
+
+<td>6</td>
+
+<td><a href="http://ratings.fide.com/id.phtml?event=4126025" target="_self"><img alt="" src="img/rating_fide.png" border="0"/></a><br/></td>
+
+<td>29 <font size=2><b>(31.10.1983)</b></font></td></tr>
+
+
+<tr class="top_ten" align="center">
+
+<td>5</td>
+<td><img src="img/up.gif" alt=""/><span style="color:#006600;"> 4</span></td>
+
+<td align=left style="padding:0px 0px 0px 10px;"><a class="link_name" href="http://en.wikipedia.org/wiki/Hikaru_Nakamura" target="_self">Nakamura</a></td>
+
+<td><img src="countries/United-States.gif" alt="United-States" title="United-States"/></td>
+
+<td><b>2782.6</b></td>
+
+<td align=right style="padding:0px 10px 0px 0px;"><span style="color:#006600;">+10.6</span></td>
+<td><a href="glass.php?statistic=7"><img src="img/stat.jpeg" alt="" width="20px" border="0"/></a></td>
+
+<td>14</td>
+
+<td><a href="http://ratings.fide.com/id.phtml?event=2016192" target="_self"><img alt="" src="img/rating_fide.png" border="0"/></a><br/></td>
+
+<td>25 <font size=2><b>(09.12.1987)</b></font></td></tr>
+
+
+<tr class="top_ten" align="center">
+
+<td>6</td>
+<td><img src="img/down.gif" alt=""/><span style="color:#cc0000;"> 1</span></td>
+
+<td align=left style="padding:0px 0px 0px 10px;"><a class="link_name" href="http://en.wikipedia.org/wiki/Fabiano_Caruana" target="_self">Caruana</a></td>
+
+<td><img src="countries/Italy.gif" alt="Italy" title="Italy"/></td>
+
+<td><b>2778.8</b></td>
+
+<td align=right style="padding:0px 10px 0px 0px;"><span style="color:#cc0000;">&minus;0.2</span></td>
+<td><a href="glass.php?statistic=29"><img src="img/stat.jpeg" alt="" width="20px" border="0"/></a></td>
+
+<td>10</td>
+
+<td><a href="http://ratings.fide.com/id.phtml?event=2020009" target="_self"><img alt="" src="img/rating_fide.png" border="0"/></a><br/></td>
+
+<td>21 <font size=2><b>(30.07.1992)</b></font></td></tr>
+
+
+<tr class="top_ten" align="center">
+
+<td>7</td>
+<td><img src="img/down.gif" alt=""/><span style="color:#cc0000;"> 1</span></td>
+
+<td align=left style="padding:0px 0px 0px 10px;"><a class="link_name" href="http://en.wikipedia.org/wiki/Viswanathan_Anand" target="_self">Anand</a></td>
+
+<td><img src="countries/India.gif" alt="India" title="India"/></td>
+
+<td><b>2775.0</b></td>
+
+<td align=right style="padding:0px 10px 0px 0px;"><span style="color:#000000;">0.0</span></td>
+<td></td>
+
+<td>0</td>
+
+<td><a href="http://ratings.fide.com/id.phtml?event=5000017" target="_self"><img alt="" src="img/rating_fide.png" border="0"/></a><br/></td>
+
+<td>43 <font size=2><b>(11.12.1969)</b></font></td></tr>
+
+
+<tr class="top_ten" align="center">
+
+<td>8</td>
+<td><img src="img/up.gif" alt=""/><span style="color:#006600;"> 2</span></td>
+
+<td align=left style="padding:0px 0px 0px 10px;"><a class="link_name" href="http://en.wikipedia.org/wiki/Topalov" target="_self">Topalov</a></td>
+
+<td><img src="countries/Bulgaria.gif" alt="Bulgaria" title="Bulgaria"/></td>
+
+<td><b>2769.0</b></td>
+
+<td align=right style="padding:0px 10px 0px 0px;"><span style="color:#000000;">0.0</span></td>
+<td></td>
+
+<td>0</td>
+
+<td><a href="http://ratings.fide.com/id.phtml?event=2900084" target="_self"><img alt="" src="img/rating_fide.png" border="0"/></a><br/></td>
+
+<td>38 <font size=2><b>(15.03.1975)</b></font></td></tr>
+
+
+<tr class="top_ten" align="center">
+
+<td>9</td>
+<td><img src="img/up.gif" alt=""/><span style="color:#006600;"> 2</span></td>
+
+<td align=left style="padding:0px 0px 0px 10px;"><a class="link_name" href="http://en.wikipedia.org/wiki/Boris_Gelfand" target="_self">Gelfand</a></td>
+
+<td><img src="countries/Israel.gif" alt="Israel" title="Israel"/></td>
+
+<td><b>2765.4</b></td>
+
+<td align=right style="padding:0px 10px 0px 0px;"><span style="color:#006600;">+1.4</span></td>
+<td><a href="glass.php?statistic=17"><img src="img/stat.jpeg" alt="" width="20px" border="0"/></a></td>
+
+<td>8</td>
+
+<td><a href="http://ratings.fide.com/id.phtml?event=2805677" target="_self"><img alt="" src="img/rating_fide.png" border="0"/></a><br/></td>
+
+<td>45 <font size=2><b>(24.06.1968)</b></font></td></tr>
+
+
+<tr class="top_ten" align="center">
+
+<td>10</td>
+<td><img src="img/down.gif" alt=""/><span style="color:#cc0000;"> 2</span></td>
+
+<td align=left style="padding:0px 0px 0px 10px;"><a class="link_name" href="http://en.wikipedia.org/wiki/Sergei_Karjakin" target="_self">Karjakin</a></td>
+
+<td><img src="countries/Russia.gif" alt="Russia" title="Russia"/></td>
+
+<td><b>2762.0</b></td>
+
+<td align=right style="padding:0px 10px 0px 0px;"><span style="color:#cc0000;">&minus;10.0</span></td>
+<td><a href="glass.php?statistic=10"><img src="img/stat.jpeg" alt="" width="20px" border="0"/></a></td>
+
+<td>8</td>
+
+<td><a href="http://ratings.fide.com/id.phtml?event=14109603" target="_self"><img alt="" src="img/rating_fide.png" border="0"/></a><br/></td>
+
+<td>23 <font size=2><b>(12.01.1990)</b></font></td></tr>
+
+
+<tr class="all_lines" align="center">
+
+<td>11</td>
+<td><img src="img/down.gif" alt=""/><span style="color:#cc0000;"> 4</span></td>
+
+<td align=left style="padding:0px 0px 0px 10px;"><a class="link_name" href="http://en.wikipedia.org/wiki/Mamedyarov" target="_self">Mamedyarov</a></td>
+
+<td><img src="countries/Azerbaijan.gif" alt="Azerbaijan" title="Azerbaijan"/></td>
+
+<td><b>2758.8</b></td>
+
+<td align=right style="padding:0px 10px 0px 0px;"><span style="color:#cc0000;">&minus;16.2</span></td>
+<td><a href="glass.php?statistic=16"><img src="img/stat.jpeg" alt="" width="20px" border="0"/></a></td>
+
+<td>8</td>
+
+<td><a href="http://ratings.fide.com/id.phtml?event=13401319" target="_self"><img alt="" src="img/rating_fide.png" border="0"/></a><br/></td>
+
+<td>28 <font size=2><b>(12.04.1985)</b></font></td></tr>
+
+
+<tr class="all_lines" align="center">
+
+<td>12</td>
+<td><span style="color:#000;"> </span></td>
+
+<td align=left style="padding:0px 0px 0px 10px;"><a class="link_name" href="http://en.wikipedia.org/wiki/Michael_Adams_(chess_player)" target="_self">Adams</a></td>
+
+<td><img src="countries/England.gif" alt="England" title="England"/></td>
+
+<td><b>2753.4</b></td>
+
+<td align=right style="padding:0px 10px 0px 0px;"><span style="color:#cc0000;">&minus;7.6</span></td>
+<td><a href="glass.php?statistic=31"><img src="img/stat.jpeg" alt="" width="20px" border="0"/></a></td>
+
+<td>4</td>
+
+<td><a href="http://ratings.fide.com/id.phtml?event=400041" target="_self"><img alt="" src="img/rating_fide.png" border="0"/></a><br/></td>
+
+<td>41 <font size=2><b>(17.11.1971)</b></font></td></tr>
+
+
+<tr class="all_lines" align="center">
+
+<td>13</td>
+<td><span style="color:#000;"> </span></td>
+
+<td align=left style="padding:0px 0px 0px 10px;"><a class="link_name" href="http://en.wikipedia.org/wiki/Leinier_Dom%C3%ADnguez" target="_self">Dominguez</a></td>
+
+<td><img src="countries/Cuba.gif" alt="Cuba" title="Cuba"/></td>
+
+<td><b>2752.7</b></td>
+
+<td align=right style="padding:0px 10px 0px 0px;"><span style="color:#cc0000;">&minus;4.3</span></td>
+<td><a href="glass.php?statistic=32"><img src="img/stat.jpeg" alt="" width="20px" border="0"/></a></td>
+
+<td>13</td>
+
+<td><a href="http://ratings.fide.com/id.phtml?event=3503240" target="_self"><img alt="" src="img/rating_fide.png" border="0"/></a><br/></td>
+
+<td>29 <font size=2><b>(23.09.1983)</b></font></td></tr>
+
+
+<tr class="all_lines" align="center">
+
+<td>14</td>
+<td><span style="color:#000;"> </span></td>
+
+<td align=left style="padding:0px 0px 0px 10px;"><a class="link_name" href="http://en.wikipedia.org/wiki/Ruslan_Ponomariov" target="_self">Ponomariov</a></td>
+
+<td><img src="countries/Ukraine.gif" alt="Ukraine" title="Ukraine"/></td>
+
+<td><b>2751.0</b></td>
+
+<td align=right style="padding:0px 10px 0px 0px;"><span style="color:#cc0000;">&minus;5.0</span></td>
+<td><a href="glass.php?statistic=12"><img src="img/stat.jpeg" alt="" width="20px" border="0"/></a></td>
+
+<td>4</td>
+
+<td><a href="http://ratings.fide.com/id.phtml?event=14103320" target="_self"><img alt="" src="img/rating_fide.png" border="0"/></a><br/></td>
+
+<td>29 <font size=2><b>(11.10.1983)</b></font></td></tr>
+
+
+<tr class="all_lines" align="center">
+
+<td>15</td>
+<td><img src="img/up.gif" alt=""/><span style="color:#006600;"> 4</span></td>
+
+<td align=left style="padding:0px 0px 0px 10px;"><a class="link_name" href="http://en.wikipedia.org/wiki/Anish_Giri" target="_self">Giri</a></td>
+
+<td><img src="countries/Netherlands.gif" alt="Netherlands" title="Netherlands"/></td>
+
+<td><b>2748.6</b></td>
+
+<td align=right style="padding:0px 10px 0px 0px;"><span style="color:#006600;">+11.6</span></td>
+<td><a href="glass.php?statistic=44"><img src="img/stat.jpeg" alt="" width="20px" border="0"/></a></td>
+
+<td>13</td>
+
+<td><a href="http://ratings.fide.com/id.phtml?event=24116068" target="_self"><img alt="" src="img/rating_fide.png" border="0"/></a><br/></td>
+
+<td>19 <font size=2><b>(28.06.1994)</b></font></td></tr>
+
+
+<tr class="all_lines" align="center">
+
+<td>16</td>
+<td><img src="img/up.gif" alt=""/><span style="color:#006600;"> 10</span></td>
+
+<td align=left style="padding:0px 0px 0px 10px;"><a class="link_name" href="http://en.wikipedia.org/wiki/Vachier-lagrave" target="_self">Vachier-Lagrave</a></td>
+
+<td><img src="countries/France.gif" alt="France" title="France"/></td>
+
+<td><b>2742.0</b></td>
+
+<td align=right style="padding:0px 10px 0px 0px;"><span style="color:#006600;">+20.0</span></td>
+<td><a href="glass.php?statistic=20"><img src="img/stat.jpeg" alt="" width="20px" border="0"/></a></td>
+
+<td>19</td>
+
+<td><a href="http://ratings.fide.com/id.phtml?event=623539" target="_self"><img alt="" src="img/rating_fide.png" border="0"/></a><br/></td>
+
+<td>22 <font size=2><b>(21.10.1990)</b></font></td></tr>
+
+
+<tr class="all_lines" align="center">
+
+<td>17</td>
+<td><img src="img/down.gif" alt=""/><span style="color:#cc0000;"> 2</span></td>
+
+<td align=left style="padding:0px 0px 0px 10px;"><a class="link_name" href="http://en.wikipedia.org/wiki/Peter_Svidler" target="_self">Svidler</a></td>
+
+<td><img src="countries/Russia.gif" alt="Russia" title="Russia"/></td>
+
+<td><b>2740.4</b></td>
+
+<td align=right style="padding:0px 10px 0px 0px;"><span style="color:#cc0000;">&minus;5.6</span></td>
+<td><a href="glass.php?statistic=18"><img src="img/stat.jpeg" alt="" width="20px" border="0"/></a></td>
+
+<td>10</td>
+
+<td><a href="http://ratings.fide.com/id.phtml?event=4102142" target="_self"><img alt="" src="img/rating_fide.png" border="0"/></a><br/></td>
+
+<td>37 <font size=2><b>(17.06.1976)</b></font></td></tr>
+
+
+<tr class="all_lines" align="center">
+
+<td>18</td>
+<td><span style="color:#000;"> </span></td>
+
+<td align=left style="padding:0px 0px 0px 10px;"><a class="link_name" href="http://en.wikipedia.org/wiki/Morozevich" target="_self">Morozevich</a></td>
+
+<td><img src="countries/Russia.gif" alt="Russia" title="Russia"/></td>
+
+<td><b>2734.0</b></td>
+
+<td align=right style="padding:0px 10px 0px 0px;"><span style="color:#cc0000;">&minus;5.0</span></td>
+<td><a href="glass.php?statistic=41"><img src="img/stat.jpeg" alt="" width="20px" border="0"/></a></td>
+
+<td>8</td>
+
+<td><a href="http://ratings.fide.com/id.phtml?event=4116992" target="_self"><img alt="" src="img/rating_fide.png" border="0"/></a><br/></td>
+
+<td>36 <font size=2><b>(18.07.1977)</b></font></td></tr>
+
+
+<tr class="all_lines" align="center">
+
+<td>19</td>
+<td><img src="img/up.gif" alt=""/><span style="color:#006600;"> 3</span></td>
+
+<td align=left style="padding:0px 0px 0px 10px;"><a class="link_name" href="http://en.wikipedia.org/wiki/Ivanchuk" target="_self">Ivanchuk</a></td>
+
+<td><img src="countries/Ukraine.gif" alt="Ukraine" title="Ukraine"/></td>
+
+<td><b>2733.0</b></td>
+
+<td align=right style="padding:0px 10px 0px 0px;"><span style="color:#006600;">+2.0</span></td>
+<td><a href="glass.php?statistic=8"><img src="img/stat.jpeg" alt="" width="20px" border="0"/></a></td>
+
+<td>8</td>
+
+<td><a href="http://ratings.fide.com/id.phtml?event=14100010" target="_self"><img alt="" src="img/rating_fide.png" border="0"/></a><br/></td>
+
+<td>44 <font size=2><b>(18.03.1969)</b></font></td></tr>
+
+
+<tr class="all_lines" align="center">
+
+<td>20</td>
+<td><span style="color:#000;"> </span></td>
+
+<td align=left style="padding:0px 0px 0px 10px;"><a class="link_name" href="http://en.wikipedia.org/wiki/Wang_Hao_(chess_player)" target="_self">Wang Hao</a></td>
+
+<td><img src="countries/China.gif" alt="China" title="China"/></td>
+
+<td><b>2732.6</b></td>
+
+<td align=right style="padding:0px 10px 0px 0px;"><span style="color:#cc0000;">&minus;3.4</span></td>
+<td><a href="glass.php?statistic=21"><img src="img/stat.jpeg" alt="" width="20px" border="0"/></a></td>
+
+<td>4</td>
+
+<td><a href="http://ratings.fide.com/id.phtml?event=8602883" target="_self"><img alt="" src="img/rating_fide.png" border="0"/></a><br/></td>
+
+<td>24 <font size=2><b>(04.08.1989)</b></font></td></tr>
+
+
+<tr class="all_lines" align="center">
+
+<td>21</td>
+<td><img src="img/down.gif" alt=""/><span style="color:#cc0000;"> 4</span></td>
+
+<td align=left style="padding:0px 0px 0px 10px;"><a class="link_name" href="http://en.wikipedia.org/wiki/Peter_Leko" target="_self">Leko</a></td>
+
+<td><img src="countries/Hungary.gif" alt="Hungary" title="Hungary"/></td>
+
+<td><b>2732.2</b></td>
+
+<td align=right style="padding:0px 10px 0px 0px;"><span style="color:#cc0000;">&minus;7.8</span></td>
+<td><a href="glass.php?statistic=28"><img src="img/stat.jpeg" alt="" width="20px" border="0"/></a></td>
+
+<td>4</td>
+
+<td><a href="http://ratings.fide.com/id.phtml?event=703303" target="_self"><img alt="" src="img/rating_fide.png" border="0"/></a><br/></td>
+
+<td>34 <font size=2><b>(08.09.1979)</b></font></td></tr>
+
+
+<tr class="all_lines" align="center">
+
+<td>22</td>
+<td><img src="img/up.gif" alt=""/><span style="color:#006600;"> 2</span></td>
+
+<td align=left style="padding:0px 0px 0px 10px;"><a class="link_name" href="http://en.wikipedia.org/wiki/Bacrot" target="_self">Bacrot</a></td>
+
+<td><img src="countries/France.gif" alt="France" title="France"/></td>
+
+<td><b>2730.1</b></td>
+
+<td align=right style="padding:0px 10px 0px 0px;"><span style="color:#006600;">+7.1</span></td>
+<td><a href="glass.php?statistic=26"><img src="img/stat.jpeg" alt="" width="20px" border="0"/></a></td>
+
+<td>10</td>
+
+<td><a href="http://ratings.fide.com/id.phtml?event=605506" target="_self"><img alt="" src="img/rating_fide.png" border="0"/></a><br/></td>
+
+<td>30 <font size=2><b>(22.01.1983)</b></font></td></tr>
+
+
+<tr class="all_lines" align="center">
+
+<td>23</td>
+<td><img src="img/up.gif" alt=""/><span style="color:#006600;"> 19</span></td>
+
+<td align=left style="padding:0px 0px 0px 10px;"><a class="link_name" href="http://en.wikipedia.org/wiki/Pavel_Eljanov" target="_self">Eljanov</a></td>
+
+<td><img src="countries/Ukraine.gif" alt="Ukraine" title="Ukraine"/></td>
+
+<td><b>2729.0</b></td>
+
+<td align=right style="padding:0px 10px 0px 0px;"><span style="color:#006600;">+23.0</span></td>
+<td><a href="glass.php?statistic=22"><img src="img/stat.jpeg" alt="" width="20px" border="0"/></a></td>
+
+<td>15</td>
+
+<td><a href="http://ratings.fide.com/id.phtml?event=14102951" target="_self"><img alt="" src="img/rating_fide.png" border="0"/></a><br/></td>
+
+<td>30 <font size=2><b>(10.05.1983)</b></font></td></tr>
+
+
+<tr class="all_lines" align="center">
+
+<td>24</td>
+<td><img src="img/up.gif" alt=""/><span style="color:#006600;"> 4</span></td>
+
+<td align=left style="padding:0px 0px 0px 10px;"><a class="link_name" href="http://en.wikipedia.org/wiki/Nikita_Vitiugov" target="_self">Vitiugov</a></td>
+
+<td><img src="countries/Russia.gif" alt="Russia" title="Russia"/></td>
+
+<td><b>2728.8</b></td>
+
+<td align=right style="padding:0px 10px 0px 0px;"><span style="color:#006600;">+9.8</span></td>
+<td><a href="glass.php?statistic=24"><img src="img/stat.jpeg" alt="" width="20px" border="0"/></a></td>
+
+<td>6</td>
+
+<td><a href="http://ratings.fide.com/id.phtml?event=4152956" target="_self"><img alt="" src="img/rating_fide.png" border="0"/></a><br/></td>
+
+<td>26 <font size=2><b>(04.02.1987)</b></font></td></tr>
+
+
+<tr class="all_lines" align="center">
+
+<td>25</td>
+<td><img src="img/up.gif" alt=""/><span style="color:#006600;"> 6</span></td>
+
+<td align=left style="padding:0px 0px 0px 10px;"><a class="link_name" href="http://en.wikipedia.org/wiki/Wang_Yue" target="_self">Wang Yue</a></td>
+
+<td><img src="countries/China.gif" alt="China" title="China"/></td>
+
+<td><b>2726.9</b></td>
+
+<td align=right style="padding:0px 10px 0px 0px;"><span style="color:#006600;">+13.9</span></td>
+<td><a href="glass.php?statistic=15"><img src="img/stat.jpeg" alt="" width="20px" border="0"/></a></td>
+
+<td>8</td>
+
+<td><a href="http://ratings.fide.com/id.phtml?event=8601429" target="_self"><img alt="" src="img/rating_fide.png" border="0"/></a><br/></td>
+
+<td>26 <font size=2><b>(31.03.1987)</b></font></td></tr>
+
+
+<tr class="all_lines" align="center">
+
+<td>26</td>
+<td><img src="img/down.gif" alt=""/><span style="color:#cc0000;"> 10</span></td>
+
+<td align=left style="padding:0px 0px 0px 10px;"><a class="link_name" href="http://en.wikipedia.org/wiki/Gata_Kamsky" target="_self">Kamsky</a></td>
+
+<td><img src="countries/United-States.gif" alt="United-States" title="United-States"/></td>
+
+<td><b>2724.6</b></td>
+
+<td align=right style="padding:0px 10px 0px 0px;"><span style="color:#cc0000;">&minus;16.4</span></td>
+<td><a href="glass.php?statistic=14"><img src="img/stat.jpeg" alt="" width="20px" border="0"/></a></td>
+
+<td>16</td>
+
+<td><a href="http://ratings.fide.com/id.phtml?event=2000024" target="_self"><img alt="" src="img/rating_fide.png" border="0"/></a><br/></td>
+
+<td>39 <font size=2><b>(02.06.1974)</b></font></td></tr>
+
+
+<tr class="all_lines" align="center">
+
+<td>27</td>
+<td><img src="img/up.gif" alt=""/><span style="color:#006600;"> 5</span></td>
+
+<td align=left style="padding:0px 0px 0px 10px;"><a class="link_name" href="http://en.wikipedia.org/wiki/Arkadij_Naiditsch" target="_self">Naiditsch</a></td>
+
+<td><img src="countries/Germany.gif" alt="Germany" title="Germany"/></td>
+
+<td><b>2724.1</b></td>
+
+<td align=right style="padding:0px 10px 0px 0px;"><span style="color:#006600;">+14.1</span></td>
+<td><a href="glass.php?statistic=53"><img src="img/stat.jpeg" alt="" width="20px" border="0"/></a></td>
+
+<td>6</td>
+
+<td><a href="http://ratings.fide.com/id.phtml?event=4650891" target="_self"><img alt="" src="img/rating_fide.png" border="0"/></a><br/></td>
+
+<td>27 <font size=2><b>(25.10.1985)</b></font></td></tr>
+
+
+<tr class="all_lines" align="center">
+
+<td>28</td>
+<td><img src="img/down.gif" alt=""/><span style="color:#cc0000;"> 7</span></td>
+
+<td align=left style="padding:0px 0px 0px 10px;"><a class="link_name" href="http://en.wikipedia.org/wiki/Radjabov" target="_self">Radjabov</a></td>
+
+<td><img src="countries/Azerbaijan.gif" alt="Azerbaijan" title="Azerbaijan"/></td>
+
+<td><b>2723.0</b></td>
+
+<td align=right style="padding:0px 10px 0px 0px;"><span style="color:#cc0000;">&minus;10.0</span></td>
+<td><a href="glass.php?statistic=13"><img src="img/stat.jpeg" alt="" width="20px" border="0"/></a></td>
+
+<td>6</td>
+
+<td><a href="http://ratings.fide.com/id.phtml?event=13400924" target="_self"><img alt="" src="img/rating_fide.png" border="0"/></a><br/></td>
+
+<td>26 <font size=2><b>(12.03.1987)</b></font></td></tr>
+
+
+<tr class="all_lines" align="center">
+
+<td>29</td>
+<td><img src="img/down.gif" alt=""/><span style="color:#cc0000;"> 4</span></td>
+
+<td align=left style="padding:0px 0px 0px 10px;"><a class="link_name" href="http://en.wikipedia.org/wiki/Ding_Liren" target="_self">Ding Liren</a></td>
+
+<td><img src="countries/China.gif" alt="China" title="China"/></td>
+
+<td><b>2722.1</b></td>
+
+<td align=right style="padding:0px 10px 0px 0px;"><span style="color:#006600;">+0.1</span></td>
+<td><a href="glass.php?statistic=114"><img src="img/stat.jpeg" alt="" width="20px" border="0"/></a></td>
+
+<td>2</td>
+
+<td><a href="http://ratings.fide.com/id.phtml?event=8603677" target="_self"><img alt="" src="img/rating_fide.png" border="0"/></a><br/></td>
+
+<td>20 <font size=2><b>(24.10.1992)</b></font></td></tr>
+
+
+<tr class="all_lines" align="center">
+
+<td>30</td>
+<td><img src="img/up.gif" alt=""/><span style="color:#006600;"> 14</span></td>
+
+<td align=left style="padding:0px 0px 0px 10px;"><a class="link_name" href="http://en.wikipedia.org/wiki/Tomashevsky" target="_self">Tomashevsky</a></td>
+
+<td><img src="countries/Russia.gif" alt="Russia" title="Russia"/></td>
+
+<td><b>2720.2</b></td>
+
+<td align=right style="padding:0px 10px 0px 0px;"><span style="color:#006600;">+17.2</span></td>
+<td><a href="glass.php?statistic=37"><img src="img/stat.jpeg" alt="" width="20px" border="0"/></a></td>
+
+<td>12</td>
+
+<td><a href="http://ratings.fide.com/id.phtml?event=4147235" target="_self"><img alt="" src="img/rating_fide.png" border="0"/></a><br/></td>
+
+<td>26 <font size=2><b>(01.07.1987)</b></font></td></tr>
+
+
+<tr class="all_lines" align="center">
+
+<td>31</td>
+<td><img src="img/down.gif" alt=""/><span style="color:#cc0000;"> 8</span></td>
+
+<td align=left style="padding:0px 0px 0px 10px;"><a class="link_name" href="http://en.wikipedia.org/wiki/Dmitry_Jakovenko" target="_self">Jakovenko</a></td>
+
+<td><img src="countries/Russia.gif" alt="Russia" title="Russia"/></td>
+
+<td><b>2719.0</b></td>
+
+<td align=right style="padding:0px 10px 0px 0px;"><span style="color:#cc0000;">&minus;5.0</span></td>
+<td><a href="glass.php?statistic=27"><img src="img/stat.jpeg" alt="" width="20px" border="0"/></a></td>
+
+<td>13</td>
+
+<td><a href="http://ratings.fide.com/id.phtml?event=4122356" target="_self"><img alt="" src="img/rating_fide.png" border="0"/></a><br/></td>
+
+<td>30 <font size=2><b>(28.06.1983)</b></font></td></tr>
+
+
+<tr class="all_lines" align="center">
+
+<td>32</td>
+<td><img src="img/down.gif" alt=""/><span style="color:#cc0000;"> 5</span></td>
+
+<td align=left style="padding:0px 0px 0px 10px;"><a class="link_name" href="http://en.wikipedia.org/wiki/Anton_Korobov" target="_self">Korobov</a></td>
+
+<td><img src="countries/Ukraine.gif" alt="Ukraine" title="Ukraine"/></td>
+
+<td><b>2716.0</b></td>
+
+<td align=right style="padding:0px 10px 0px 0px;"><span style="color:#cc0000;">&minus;4.0</span></td>
+<td><a href="glass.php?statistic=102"><img src="img/stat.jpeg" alt="" width="20px" border="0"/></a></td>
+
+<td>10</td>
+
+<td><a href="http://ratings.fide.com/id.phtml?event=14105730" target="_self"><img alt="" src="img/rating_fide.png" border="0"/></a><br/></td>
+
+<td>28 <font size=2><b>(25.06.1985)</b></font></td></tr>
+
+
+<tr class="all_lines" align="center">
+
+<td>33</td>
+<td><img src="img/up.gif" alt=""/><span style="color:#006600;"> 4</span></td>
+
+<td align=left style="padding:0px 0px 0px 10px;"><a class="link_name" href="http://en.wikipedia.org/wiki/Alexander_Areshchenko" target="_self">Areshchenko</a></td>
+
+<td><img src="countries/Ukraine.gif" alt="Ukraine" title="Ukraine"/></td>
+
+<td><b>2714.0</b></td>
+
+<td align=right style="padding:0px 10px 0px 0px;"><span style="color:#006600;">+5.0</span></td>
+<td><a href="glass.php?statistic=48"><img src="img/stat.jpeg" alt="" width="20px" border="0"/></a></td>
+
+<td>6</td>
+
+<td><a href="http://ratings.fide.com/id.phtml?event=14109530" target="_self"><img alt="" src="img/rating_fide.png" border="0"/></a><br/></td>
+
+<td>27 <font size=2><b>(15.06.1986)</b></font></td></tr>
+
+
+<tr class="all_lines" align="center">
+
+<td>34</td>
+<td><img src="img/up.gif" alt=""/><span style="color:#006600;"> 11</span></td>
+
+<td align=left style="padding:0px 0px 0px 10px;"><a class="link_name" href="http://en.wikipedia.org/wiki/Le_Quang_Liem" target="_self">Le Quang Liem</a></td>
+
+<td><img src="countries/Vietnam.gif" alt="Vietnam" title="Vietnam"/></td>
+
+<td><b>2712.0</b></td>
+
+<td align=right style="padding:0px 10px 0px 0px;"><span style="color:#006600;">+10.0</span></td>
+<td><a href="glass.php?statistic=45"><img src="img/stat.jpeg" alt="" width="20px" border="0"/></a></td>
+
+<td>8</td>
+
+<td><a href="http://ratings.fide.com/id.phtml?event=12401137" target="_self"><img alt="" src="img/rating_fide.png" border="0"/></a><br/></td>
+
+<td>22 <font size=2><b>(13.03.1991)</b></font></td></tr>
+
+
+<tr class="all_lines" align="center">
+
+<td>35</td>
+<td><img src="img/up.gif" alt=""/><span style="color:#006600;"> 5</span></td>
+
+<td align=left style="padding:0px 0px 0px 10px;"><a class="link_name" href="http://en.wikipedia.org/wiki/Vladimir_Malakhov_(chess_player)" target="_self">Malakhov</a></td>
+
+<td><img src="countries/Russia.gif" alt="Russia" title="Russia"/></td>
+
+<td><b>2710.4</b></td>
+
+<td align=right style="padding:0px 10px 0px 0px;"><span style="color:#006600;">+3.4</span></td>
+<td><a href="glass.php?statistic=33"><img src="img/stat.jpeg" alt="" width="20px" border="0"/></a></td>
+
+<td>9</td>
+
+<td><a href="http://ratings.fide.com/id.phtml?event=4120787" target="_self"><img alt="" src="img/rating_fide.png" border="0"/></a><br/></td>
+
+<td>32 <font size=2><b>(27.11.1980)</b></font></td></tr>
+
+
+<tr class="all_lines" align="center">
+
+<td>36</td>
+<td><img src="img/up.gif" alt=""/><span style="color:#006600;"> 2</span></td>
+
+<td align=left style="padding:0px 0px 0px 10px;"><a class="link_name" href="http://en.wikipedia.org/wiki/Laurent_Fressinet" target="_self">Fressinet</a></td>
+
+<td><img src="countries/France.gif" alt="France" title="France"/></td>
+
+<td><b>2709.6</b></td>
+
+<td align=right style="padding:0px 10px 0px 0px;"><span style="color:#006600;">+1.6</span></td>
+<td><a href="glass.php?statistic=75"><img src="img/stat.jpeg" alt="" width="20px" border="0"/></a></td>
+
+<td>4</td>
+
+<td><a href="http://ratings.fide.com/id.phtml?event=608742" target="_self"><img alt="" src="img/rating_fide.png" border="0"/></a><br/></td>
+
+<td>31 <font size=2><b>(01.11.1981)</b></font></td></tr>
+
+
+<tr class="all_lines" align="center">
+
+<td>37</td>
+<td><img src="img/down.gif" alt=""/><span style="color:#cc0000;"> 2</span></td>
+
+<td align=left style="padding:0px 0px 0px 10px;"><a class="link_name" href="http://en.wikipedia.org/wiki/Pendyala_Harikrishna" target="_self">Harikrishna</a></td>
+
+<td><img src="countries/India.gif" alt="India" title="India"/></td>
+
+<td><b>2709.0</b></td>
+
+<td align=right style="padding:0px 10px 0px 0px;"><span style="color:#000000;">0.0</span></td>
+<td></td>
+
+<td>0</td>
+
+<td><a href="http://ratings.fide.com/id.phtml?event=5007003" target="_self"><img alt="" src="img/rating_fide.png" border="0"/></a><br/></td>
+
+<td>27 <font size=2><b>(10.05.1986)</b></font></td></tr>
+
+
+<tr class="all_lines" align="center">
+
+<td>38</td>
+<td><img src="img/up.gif" alt=""/><span style="color:#006600;"> 1</span></td>
+
+<td align=left style="padding:0px 0px 0px 10px;"><a class="link_name" href="http://en.wikipedia.org/wiki/Zolt%C3%A1n_Alm%C3%A1si" target="_self">Almasi</a></td>
+
+<td><img src="countries/Hungary.gif" alt="Hungary" title="Hungary"/></td>
+
+<td><b>2707.0</b></td>
+
+<td align=right style="padding:0px 10px 0px 0px;"><span style="color:#000000;">0.0</span></td>
+<td></td>
+
+<td>0</td>
+
+<td><a href="http://ratings.fide.com/id.phtml?event=702293" target="_self"><img alt="" src="img/rating_fide.png" border="0"/></a><br/></td>
+
+<td>37 <font size=2><b>(29.08.1976)</b></font></td></tr>
+
+
+<tr class="all_lines" align="center">
+
+<td>39</td>
+<td><img src="img/down.gif" alt=""/><span style="color:#cc0000;"> 5</span></td>
+
+<td align=left style="padding:0px 0px 0px 10px;"><a class="link_name" href="http://en.wikipedia.org/wiki/Wesley_so" target="_self">So</a></td>
+
+<td><img src="countries/Philippines.gif" alt="Philippines" title="Philippines"/></td>
+
+<td><b>2706.4</b></td>
+
+<td align=right style="padding:0px 10px 0px 0px;"><span style="color:#cc0000;">&minus;3.6</span></td>
+<td><a href="glass.php?statistic=137"><img src="img/stat.jpeg" alt="" width="20px" border="0"/></a></td>
+
+<td>4</td>
+
+<td><a href="http://ratings.fide.com/card.phtml?event=5202213" target="_self"><img alt="" src="img/rating_fide.png" border="0"/></a><br/></td>
+
+<td>19 <font size=2><b>(09.10.1993)</b></font></td></tr>
+
+
+<tr class="all_lines" align="center">
+
+<td>40</td>
+<td><img src="img/down.gif" alt=""/><span style="color:#cc0000;"> 4</span></td>
+
+<td align=left style="padding:0px 0px 0px 10px;"><a class="link_name" href="http://en.wikipedia.org/wiki/Dmitry_Andreikin" target="_self">Andreikin</a></td>
+
+<td><img src="countries/Russia.gif" alt="Russia" title="Russia"/></td>
+
+<td><b>2706.2</b></td>
+
+<td align=right style="padding:0px 10px 0px 0px;"><span style="color:#cc0000;">&minus;2.8</span></td>
+<td><a href="glass.php?statistic=50"><img src="img/stat.jpeg" alt="" width="20px" border="0"/></a></td>
+
+<td>16</td>
+
+<td><a href="http://ratings.fide.com/id.phtml?event=4158814" target="_self"><img alt="" src="img/rating_fide.png" border="0"/></a><br/></td>
+
+<td>23 <font size=2><b>(05.02.1990)</b></font></td></tr>
+
+
+<tr class="all_lines" align="center">
+
+<td>41</td>
+<td><img src="img/down.gif" alt=""/><span style="color:#cc0000;"> 8</span></td>
+
+<td align=left style="padding:0px 0px 0px 10px;"><a class="link_name" href="http://en.wikipedia.org/wiki/Evgeny_Alekseev_(chess_player)" target="_self">Alekseev</a></td>
+
+<td><img src="countries/Russia.gif" alt="Russia" title="Russia"/></td>
+
+<td><b>2706.2</b></td>
+
+<td align=right style="padding:0px 10px 0px 0px;"><span style="color:#cc0000;">&minus;3.8</span></td>
+<td><a href="glass.php?statistic=94"><img src="img/stat.jpeg" alt="" width="20px" border="0"/></a></td>
+
+<td>2</td>
+
+<td><a href="http://ratings.fide.com/id.phtml?event=4138147" target="_self"><img alt="" src="img/rating_fide.png" border="0"/></a><br/></td>
+
+<td>27 <font size=2><b>(28.11.1985)</b></font></td></tr>
+
+
+<tr class="all_lines" align="center">
+
+<td>42</td>
+<td><img src="img/up.gif" alt=""/><span style="color:#006600;"> 1</span></td>
+
+<td align=left style="padding:0px 0px 0px 10px;"><a class="link_name" href="http://en.wikipedia.org/wiki/Vallejo_pons" target="_self">Vallejo</a></td>
+
+<td><img src="countries/Spain.gif" alt="Spain" title="Spain"/></td>
+
+<td><b>2705.1</b></td>
+
+<td align=right style="padding:0px 10px 0px 0px;"><span style="color:#cc0000;">&minus;0.9</span></td>
+<td><a href="glass.php?statistic=36"><img src="img/stat.jpeg" alt="" width="20px" border="0"/></a></td>
+
+<td>11</td>
+
+<td><a href="http://ratings.fide.com/id.phtml?event=2205530" target="_self"><img alt="" src="img/rating_fide.png" border="0"/></a><br/></td>
+
+<td>31 <font size=2><b>(21.08.1982)</b></font></td></tr>
+
+
+<tr class="all_lines" align="center">
+
+<td>43</td>
+<td><img src="img/down.gif" alt=""/><span style="color:#cc0000;"> 13</span></td>
+
+<td align=left style="padding:0px 0px 0px 10px;"><a class="link_name" href="http://en.wikipedia.org/wiki/David_Navara" target="_self">Navara</a></td>
+
+<td><img src="countries/Czech-Republic.gif" alt="Czech-Republic" title="Czech-Republic"/></td>
+
+<td><b>2703.3</b></td>
+
+<td align=right style="padding:0px 10px 0px 0px;"><span style="color:#cc0000;">&minus;11.7</span></td>
+<td><a href="glass.php?statistic=23"><img src="img/stat.jpeg" alt="" width="20px" border="0"/></a></td>
+
+<td>14</td>
+
+<td><a href="http://ratings.fide.com/id.phtml?event=309095" target="_self"><img alt="" src="img/rating_fide.png" border="0"/></a><br/></td>
+
+<td>28 <font size=2><b>(27.03.1985)</b></font></td></tr>
+
+
+<tr class="all_lines" align="center">
+
+<td>44</td>
+<td><img src="img/down.gif" alt=""/><span style="color:#cc0000;"> 3</span></td>
+
+<td align=left style="padding:0px 0px 0px 10px;"><a class="link_name" href="http://en.wikipedia.org/wiki/Moiseenko" target="_self">Moiseenko</a></td>
+
+<td><img src="countries/Ukraine.gif" alt="Ukraine" title="Ukraine"/></td>
+
+<td><b>2703.2</b></td>
+
+<td align=right style="padding:0px 10px 0px 0px;"><span style="color:#cc0000;">&minus;2.8</span></td>
+<td><a href="glass.php?statistic=65"><img src="img/stat.jpeg" alt="" width="20px" border="0"/></a></td>
+
+<td>4</td>
+
+<td><a href="http://ratings.fide.com/id.phtml?event=14102560" target="_self"><img alt="" src="img/rating_fide.png" border="0"/></a><br/></td>
+
+<td>33 <font size=2><b>(17.05.1980)</b></font></td></tr>
+
+
+<tr class="all_lines" align="center">
+
+<td>45</td>
+<td><img src="img/down.gif" alt=""/><span style="color:#cc0000;"> 16</span></td>
+
+<td align=left style="padding:0px 0px 0px 10px;"><a class="link_name" href="http://en.wikipedia.org/wiki/Nepomniachtchi" target="_self">Nepomniachtchi</a></td>
+
+<td><img src="countries/Russia.gif" alt="Russia" title="Russia"/></td>
+
+<td><b>2702.8</b></td>
+
+<td align=right style="padding:0px 10px 0px 0px;"><span style="color:#cc0000;">&minus;14.2</span></td>
+<td><a href="glass.php?statistic=19"><img src="img/stat.jpeg" alt="" width="20px" border="0"/></a></td>
+
+<td>11</td>
+
+<td><a href="http://ratings.fide.com/id.phtml?event=4168119" target="_self"><img alt="" src="img/rating_fide.png" border="0"/></a><br/></td>
+
+<td>23 <font size=2><b>(14.07.1990)</b></font></td></tr></tbody>
+			<tfoot>
+			<spaN></spaN>
+			</tfoot>
+			</table>
+<br>
+
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-6996121257207898";
+/* main 728_90 */
+google_ad_slot = "4081317276";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+
+<br><br>
+	
+
+<font size=2 face=verdana>
+
+<strong>Current Events:</strong><br>
+
+<!--<table width="700"  bordercolor="#CCCC99" class="table_index_tab" cellpadding="5" cellspacing="0"> -->
+<table class="table_result_event" width=700 cellspacing="1" cellpadding="5">
+
+<!--(playing in the FIDE Grand Prix)
+     (are  not playing) <b></b>
+            (is not playing) on Mon-->
+
+
+
+<br><br>
+
+</table>
+
+
+<br>
+
+<font size=2 face=verdana>
+
+<strong>Future Events Chess Calendar:</strong><br>
+
+<table class="table_result_event" width=700 cellspacing="1" cellpadding="5">
+
+<tr class="leaders_12" align="center"> <td width="20" align=top>1.</td> <td width="350" align=left cellpadding="10"><strong>Topalov - Laznicka (match)</strong>, <a href="http://www.corrida.nss.cz/">Web</a> (6) 
+<br> 19 - 25 Sep 2013, Novy Bor (Czech Republic)</td>
+<td width="350" align=left>Topalov, Laznicka</td> </tr>
+
+
+<tr class="leaders_12" align="center"> <td width="20" align=top>2.</td> <td width="350" align=left cellpadding="10"><strong>Baku Open 2013</strong>, <a href="http://www.azerichess.az/">Web</a> (9) 
+<br> 19 - 27 Sep 2013, Baku (Azerbaijan)</td>
+<td width="350" align=left>Alekseev</td> </tr>
+
+
+<tr class="leaders_12" align="center"> <td width="20" align=top>3.</td> <td width="350" align=left cellpadding="10"><strong>6th FIDE Grand Prix Series 2012/13</strong>, <a href="http://paris2013.fide.com/">Web</a> (11) 
+<br> 22 Sep - 4 Oct 2013, Paris (France)</td>
+<td width="350" align=left>Caruana, Nakamura, Grischuk, Svidler, Gelfand, Dominguez, Ponomariov, Ivanchuk, Radjabov<!--, Kosintseva, T, Harika, Khotenashvili, Kosteniuk, Ju Wenjun--></td> </tr>
+
+
+
+<tr class="leaders_12"><td width="20" align=top>4.</td>
+<td width="350" align=left cellpadding="10"><strong>Russian Superfinal 2013</strong>, <a href="http://russiachess.org/news/all/nizhni_novgorod_primet_uchastnikov_superfinala/">Web</a> (9) 
+<br> 4  - 15 Oct 2013, Nizhny Novgorod (Russia)</td><td width="350" align=left>Kramnik, Karjakin, Svidler, Vitiugov, Nepomniachtchi, Andreikin</td></tr>
+
+<tr class="leaders_12" align="center"> <td width="20" align=top>5.</td> <td width="350" align=left cellpadding="10"><strong>7th Kings Tournament</strong>, <a href="http://www.turneulregilor.com/">Web</a> (10) 
+<br> 6 - 17 Oct 2013, (Romania)</td>
+<td width="350" align=left>Caruana, Ponomariov, Wang Hao, Radjabov<!--, Kosintseva, T, Harika, Khotenashvili, Kosteniuk, Ju Wenjun--></td> </tr>
+
+
+<tr class="leaders_12" align="center"><td width="20" align=top>6.</td>
+<td width="350" align=left cellpadding="10"><strong>Chinese League (Division A) 2013</strong>, <a href="http://chess.sport.org.cn/">Web</a> (10/22) 
+<br> (next 10 Oct )  30 Apr - 19 Dec 2013, (China)</td><td width="350" align=left>Wang Hao, Wang Yue, Ding Liren, Malakhov, Jobava</td></tr>
+
+
+<tr class="leaders_12" align="center"> <td width="20" align=top>7.</td> <td width="350" align=left cellpadding="10"><strong>European Club Cup 2013</strong>, <a href="http://www.fide.com/component/fidecalendar/?view=fidecalendar">Web</a> (7) 
+<br> 19 - 27 Oct 2013, Rhodes (Greece)</td>
+<td width="350" align=left>Many 2700+ players<!--, Kosintseva, T, Harika, Khotenashvili, Kosteniuk, Ju Wenjun--></td> </tr>
+
+<tr class="leaders_12" align="center"><td width="20" align=top.>8.</td>
+<td width="350" align=left cellpadding="10"><strong>17th Unive Chess Tournament</strong>, <a href="http://www.univechess.nl/">Web</a> (6) 
+<br> 20 - 26 Oct 2013, Hoogeveen (Netherlands)</td><td width="350" align=left>Adams, So</td></tr>
+
+
+<tr class="leaders_12" align="center"> <td width="20" align=top>9.</td> <td width="350" align=left cellpadding="10"><strong>World Championship Match 2013 (?)</strong>, <a href="http://www.fide.com/index.php?option=com_fidecalendar&view=fidecalendar">Web</a> (12) 
+<br> 6 - 26 Nov 2013, Chennai (India)</td>
+<td width="350" align=left>Anand, Carlsen<!--, Kosintseva, T, Harika, Khotenashvili, Kosteniuk, Ju Wenjun--></td> </tr>
+
+<tr class="leaders_12" align="center"> <td width="20" align=top>10.</td> <td width="350" align=left cellpadding="10"><strong>European Team Championship 2013</strong>, <a href="http://www.fide.com/index.php?option=com_fidecalendar&view=fidecalendar">Web</a> (9) 
+<br> 7 - 18 Nov 2013, Warsaw (Poland)</td>
+<td width="350" align=left>Many 2700+ players<!--, Kosintseva, T, Harika, Khotenashvili, Kosteniuk, Ju Wenjun--></td> </tr>
+
+
+<tr class="leaders_12" align="center"> <td width="20" align=top>11.</td> <td width="350" align=left cellpadding="10"><strong>World Team Championship 2013</strong>, <a href="http://www.fide.com/index.php?option=com_fidecalendar&view=fidecalendar">Web</a> (9) 
+<br> 1 - 11 Dec 2013, Antalya (Turkey)</td>
+<td width="350" align=left>Many 2700+ players</td> </tr>
+
+
+
+</table>
+
+<br>
+
+<font size=2 face=verdana>
+
+<strong>Finished Events:</strong><br>
+
+<table class="table_result_event" width=700 cellspacing="1" cellpadding="5">
+
+
+<tr class="leaders_12" align="center"> <td width="20" align=top>1.</td> <td width="350" align=left cellpadding="10"><strong>1st Sinquefield Cup</strong>, <a href="http://saintlouischessclub.org/">Web</a> (6/6) 
+<br>9 - 15 Sep 2013, Saint Louis (USA)</td>
+<td width="350" align=left><b>Carlsen</b>, Aronian, Nakamura, Kamsky</td> </tr>
+
+<tr class="leaders_12" align="center"> <td width="20" align=top>2.</td> <td width="350" align=left cellpadding="10"><strong>Polish League (Ekstraliga) 2013</strong>, <a href="http://www.chessarbiter.com/turnieje/2013/tdr_1852/results.html?l=pl&tb=202_">Web</a> (9/9) 
+<br>24 May - 15 Sep 2013, (Poland)</td>
+<td width="350" align=left><b>Areschenko, Navara</b>, Wojtaszek</td> </tr>
+
+
+<tr class="leaders_12" align="center"> <td width="20" align=top>3.</td> <td width="350" align=left cellpadding="10"><strong>Spanish League 2013</strong>, <a href="http://www.feda.org/web/">Web</a> (7/7) 
+<br>8 - 14 Sep 2013, Linares (Spain)</td>
+<td width="350" align=left> <b>Dominguez, Giri, Vachier-Lagrave</b>, Bacrot, Navara,  Naiditsch, Vallejo, Van Welly</td> </tr>
+
+
+<tr class="leaders_12" align="center"> <td width="20" align=top>4.</td> <td width="350" align=left cellpadding="10"><strong>14th Poikovsky Chess Tournament</strong>, <a href="http://ermakinfo.ru/mezhdunarodnyiy-shahmatnyiy-turnir-im-a-karpova/">Web</a> (9/9) 
+<br>28 Aug  - 6 Sep 2013, Poikovsky (Russia)</td>
+<td width="350" align=left>Jakovenko, Nepomniachtchi, <b>Eljanov</b></td> </tr>
+
+
+<tr class="leaders_12" align="center"> <td width="20" align=top>5.</td> <td width="350" align=left cellpadding="10"><strong>World Cup 2013</strong>, <a href="http://www.chessworldcup2013.com/">Web</a> (7.4/7.4) 
+<br> 11 Aug - 3 Sep 2013, Tromso (Norway)</td>
+<td width="350" align=left>Aronian, Caruana, <b>Kramnik</b>, Grischuk, Karjakin, Nakamura, Gelfand, Svidler, Morozevich, etc<!--, Kosintseva, T, Harika, Khotenashvili, Kosteniuk, Ju Wenjun--></td> </tr>
+
+
+<tr class="leaders_12"><td width="20" align=top>6.</td>
+<td width="350" align=left cellpadding="10"><strong>USA - China (match)</strong>, <a href="http://sports.sina.com.cn/go/chesslive.html">Web</a> (5/5) 
+<br> 19  - 23 Jul 2013, Ningbo (China)</td><td width="350" align=left><b>Wang Yue</b></td></tr>
+
+
+</table>
+ 
+
+
+
+
+
+</font><br><br>
+
+<b>Review Chess Games played by 2700+ players:</b>
+
+<br><br>
+
+
+
+<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="700" height="525" id="chesstheatre_gui" align="middle">
+				<param name="movie" value="chesstheatre_gui.swf">
+				<param name="play" value="true">
+				<param name="loop" value="false">
+				<param name="quality" value="high">
+				<param name="bgcolor" value="#ffffff">
+				<param name="allowscriptaccess" value="sameDomain">
+				<!--[if !IE]>-->
+				<object type="application/x-shockwave-flash" data="chesstheatre_gui.swf" width="700" height="525" align="middle">
+					<param name="play" value="true">
+					<param name="loop" value="false">
+					<param name="quality" value="high">
+					<param name="bgcolor" value="#ffffff">
+					<param name="allowscriptaccess" value="sameDomain">
+				<!--<![endif]-->
+					<a href="http://www.adobe.com/go/getflashplayer">
+						<img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player">
+					</a>
+				<!--[if !IE]>-->
+				</object>
+				<!--<![endif]-->
+			</object>
+
+
+
+<br>
+
+</p>
+
+</td>
+
+
+
+
+
+<td width="322 px" align="top">
+
+<font size=3 face=verdana>
+
+<!--<br>
+
+<a href="http://www.cruxis.com/chess/houdini.htm?2700" target="_blank"><img src="Houdini3-Ad.png" width="300" height="88" border="0" style="margin:3px 11px 12px 11px"></a>-->
+
+
+<br>
+<strong>Welcome to Live Chess Ratings!</strong><br> <p align="left">
+
+<font size=2 face=verdana>
+This website is dedicated to monitoring the live ratings of the top chess players in the world. </font>
+
+
+<br><br>
+<a href="http://www.2700chess.com/shop"> <img src="img/Anna_Ushenina.png"> </a>
+
+<br>
+
+<font size="2">
+<a href="http://www.2700chess.com/shop">Test your strength and improve your game with the Women's World Chess Champion</a>
+
+</font>
+
+<p align="left">
+
+
+
+
+<!--<font size="2"> If you wish to place an advertisement here, please contact info(at)2700chess.com </font><font size="1"><br><br></font>-->
+
+
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-6996121257207898";
+/* 300_250_top_one_right */
+google_ad_slot = "1605821078";
+google_ad_width = 300;
+google_ad_height = 250;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+
+<br><br>
+
+<a href="http://www.2700chess.com" target="_self"><img border="0" src="http://2700chess.com/files/highest300.png" alt= "Highest Ever Live Ratings" title="" /></a><br />
+
+
+
+<br>
+
+
+
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-6996121257207898";
+/* 300_250_top_right_flash */
+google_ad_slot = "3524073871";
+google_ad_width = 300;
+google_ad_height = 250;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+<br><br>
+
+<!--<font size="2">Thank you! Your continued encouragement and support has guided the direction of our improvements. It is with great 
+pleasure that we announce the extension of our live ratings service to include the <a href="http://2700chess.com/women.php">world's top women</a> rated 2500 or 
+more. We bring this addition online in time to cover the biggest women's event on the calendar, the <a href="http://chess2012.ugrasport.com/">Women's World Chess Championship 2012</a>. <br> <br> 
+
+ 
+In May 2011 when we started this site, we created our signature Top 10 live ratings banners that can be embedded in your 
+blog or website. By extending our service to include women's live ratings, we can now provide elegant Top 10 banners for 
+the top women in the same style as we are using for the world's top 10 players. <br><br>
+
+</font>-->
+
+
+ <a href="http://www.2700chess.com/live" target="_self"><img src="http://www.2700chess.com/live.jpg" alt= "Live" title=""/ border="0"></a> <font size=2 face=verdana>games, cross tables, schedules are <a href="http://www.2700chess.com/live">here</a><br> </font>
+
+
+<table width="322" class="table_result_game" cellspacing="2">
+
+<tr>
+  <td colspan="3" align="center"><b>Sunday 15 September</b></td></tr>
+
+<!--MondayTuesdayWednesdayThursdayFridaySaturdaySunday-->
+
+
+<!--<tr>    <td colspan="3" align="center">Rest Day</td></tr> -->
+ 
+<!--<tr><td width="120"></td><td width="">:</td><td width="120">Khenkin</td></tr>
+
+  <!--&frac12;:&frac12; <b>1</b>:<b>0</b> / <b>0</b>:<b>1</b> -->
+
+		
+<!-- &frac12;:&frac12; <b>1</b>:<b>0</b> / <b>0</b>:<b>1</b> -->
+
+	
+<tr><td colspan="3" align="center"><font color="green">1st Sinquefield Cup <a href="http://saintlouischessclub.org/">Web</a><br>
+Round 6, starts at 16:00 GMT 
+  </font></td></tr>
+
+<tr><td width="120">Carlsen</td><td width=""><b>1</b>:<b>0</b></td><td width="120">Aronian</td></tr>
+<tr><td width="120">Kamsky</td><td width="">&frac12;:&frac12;</td><td width="120">Nakamura</td></tr>
+
+ 
+<!-- &frac12;:&frac12; <b>1</b>:<b>0</b> / <b>0</b>:<b>1</b> -->
+
+
+</table>
+
+ 
+ 	
+
+<!--
+
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="URME5QJ3JMKHS">
+<input type="image" src="http://2700chess.com/donate-button2.png" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>-->
+
+
+
+<p align="left">
+
+
+
+
+
+
+
+<center>
+<a href="https://twitter.com/2700chess" class="twitter-follow-button">Follow @2700chess</a>
+<script src="//platform.twitter.com/widgets.js" type="text/javascript"></script></center>
+
+
+<!--<a class="twitter-timeline"  href="https://twitter.com/2700chess" data-widget-id="344851468731428865">Tweets by @2700chess</a>-->
+
+
+<a class="twitter-timeline" href="https://twitter.com/2700chess" data-widget-id="344851468731428865" data-chrome="nofooter noheader transparent" >Tweets by @2700chess</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+
+
+
+<!--<script src="http://widgets.twimg.com/j/2/widget.js"></script>
+<script>
+new TWTR.Widget({
+  version: 2,
+  type: 'profile',
+  rpp: 4,
+  interval: 6000,
+  width: 'auto',
+  height: 300,
+  theme: {
+    shell: {
+      background: '#0094c1',
+      color: '#ffffff'
+    },
+    tweets: {
+      background: '#e3e2c4',
+      color: '#000000',
+      links: '#0000e7'
+    }
+  },
+  features: {
+    scrollbar: true,
+    loop: false,
+    live: true,
+    hashtags: true,
+    timestamp: true,
+    avatars: false,
+    behavior: 'all'
+  }
+}).render().setUser('2700chess').start();
+</script>-->
+
+
+
+
+<p align="left">
+
+<font size=2 face=verdana>
+
+Frequently Asked Questions (<a href="http://www.2700chess.com/faq">FAQ</a>) <br><br>
+
+
+
+
+Download Live Rating's <a href="http://www.2700chess.com/2700chess.com.pgn">PGN</a><br>
+Download Archived <a href="http://www.2700chess.com/Archive_2700chess.com.pgn">PGN</a><br> </font> 
+
+<p align="left"><font size="2" face="verdana">
+
+If you have your own site or blog, we are happy to offer you use of the Top 10 Players banner. This banner is <b>updated automatically</b>. 
+That is, every time there is a change to the Top 10 on our web page, your Top 10 banner is updated simultaneously. </font></p>
+
+
+
+
+
+<a href="http://www.2700chess.com" target="_blank"><img border="0" src="http://www.2700chess.com/files/topten.png" alt= "2700chess.com for more details and full list" title="2700chess.com for more details and full list" ></a>
+
+<br>
+
+<p align="center">
+
+<font size=2 face=verdana> <a href="http://www.2700chess.com/women" alt="Women's Live Chess Ratings"> <img src="WomenBanner.gif" align="center" border="0"></a></font>
+
+<br><br>
+
+
+<font size=2 face=verdana>
+<a href="http://www.2700chess.com/women.php" target="_blank"><img border="0" src="http://www.2700chess.com/files/topten_women.png" alt= "2700chess.com for more details and full list" title="2700chess.com for more details and full list" ></a>
+
+
+
+<p align="left">
+
+You can get the source code of either the 300px or the narrower 200px width for these banners by going to the <a href="http://www.2700chess.com/live.php" target="_self">LIVE GAMES</a> section.
+
+<br><br>
+
+<font size=2 face=verdana>
+
+You may review the most recent games of chess players rated 2700+ in the tournaments box at the bottom left of this page: <!--<a href="#chessboard">chess board</a> -->
+please select the tournament and the round number, then click on a game to activate our chess board.<br>
+Once you have finished reviewing a game, you can click on the "Select game" icon at the top left hand corner of the tournaments box to return to the tournaments list.
+<br>
+
+<font size=2 face=verdana> <!--Starting 1 July 2012, FIDE's <a href="http://ratings.fide.com/top.phtml?list=men">official rating list</a> is being updated on the 1st of every month, and includes ratings of rapid and blitz chess. 
+We will introduce ratings for rapid and blitz chess when they become widespread as only a few players have these ratings at this time.<br>-->
+
+<br>
+We would like to extend our special thanks to Hans Arild Runde for his ground-breaking idea of calculating and regularly updating the live chess ratings of elite players, 
+to Dr Christopher Wright for his contribution to the all-important early development of this site
+and thanks to Mark Crowther at TWIC for sharing PGN of games that are difficult to get from official websites. <br>
+
+
+<p align="left">
+
+<font size=2 face=verdana>
+We would like to thank James Satrapa for his help in maintaining and improving this website. <br>
+We would also like to thank Annie Kappel for her help in improving text and layout.<br>
+
+
+
+
+<br>
+Live Chess Ratings have been conducted since May 1, 2011.
+
+
+<br><br>
+If you wish to place an advertisement here or If there is any information that we may have missed that involves players rated 2700+, please contact us via email: info(at)2700chess.com</a>.
+
+<br>
+<br>
+Author: Artiom Tsepotan, International Master.<br> <br> 
+
+<img src="img/ccnow.gif"><br>
+
+</font>
+
+
+</td></tr>
+
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<br>
+
+
+
+<!-- Start of StatCounter Code -->
+<script type="text/javascript">
+var sc_project=6862567; 
+var sc_invisible=1; 
+var sc_security="84e79e55"; 
+</script>
+
+<script type="text/javascript"
+src="http://www.statcounter.com/counter/counter.js"></script><noscript><div
+class="statcounter"><a title="hit counter"
+href="http://statcounter.com/" target="_blank"><img
+class="statcounter"
+src="http://c.statcounter.com/6862567/0/84e79e55/1/"
+alt="hit counter" ></a></div></noscript>
+<!-- End of StatCounter Code -->
+
+<!-- Start Google -->
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-23175919-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<!-- End Google -->
+
+
+
+
+<font size=2 align=center><br><br>&copy; 2013 Live Chess Ratings | Contact us: info(at)2700chess.com<br><br></a><a name="chessboard"></a></font>
+
+</body>
+</html>
