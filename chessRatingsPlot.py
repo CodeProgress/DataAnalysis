@@ -5,12 +5,14 @@
 #Uses regular expressions package to extract data from http://www.2700chess.com/
 
 import re
+import urllib2
 import pylab
 
-#'chessRatings2700Chess.txt' is the page source from http://www.2700chess.com/
+#chess ratings from 2700chess.com
 
-with open('chessRatings2700Chess.txt', 'r') as webPage:
-    text = webPage.read()
+source = urllib2.urlopen('http://www.2700chess.com/')
+
+text = source.read()
 
 findRatings = re.findall(r'(<td><b>)(\d+.\d)(</b></td>)', text)
 
@@ -28,7 +30,7 @@ pylab.xkcd() #for styling
 pylab.scatter(range(1, len(ratings)+1), ratings)
 
 #annotate highest rating
-pylab.annotate(worldNumOne +' - ' +str(ratings[0]), xy = (0, ratings[0]), xytext = (10, 2870), \
+pylab.annotate(worldNumOne +' - ' +str(ratings[0]), xy = (0, ratings[0]), xytext = (10, ratings[0]), \
 bbox = dict(boxstyle = 'round,pad=0.3', fc = 'yellow', alpha = 0.5), \
 arrowprops = dict(arrowstyle = '->', connectionstyle = 'arc3,rad=0', shrinkB=15))
 
