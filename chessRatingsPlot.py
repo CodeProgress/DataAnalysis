@@ -5,14 +5,14 @@
 #Uses regular expressions package to extract data from http://www.2700chess.com/
 
 import re
-import urllib2
+import requests
 import pylab
 
 #chess ratings from 2700chess.com
 
-source = urllib2.urlopen('http://www.2700chess.com/')
+source = requests.get('http://www.2700chess.com/')
 
-text = source.read()
+text = source.text
 
 findRatings = re.findall(r'(<td><b>)(\d+.\d)(</b></td>)', text)
 
