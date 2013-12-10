@@ -80,11 +80,21 @@ def make_array(landingList, startVal = 100, rowSize = 10):
     asArray.reverse() #to match the gameboard visually
     return asArray
 
-def label_board(arrayA):
+def label_board(arrayA, snakes  = {16:  6,     47: 26,     49: 11,
+                                    56: 53,     62: 19,     64: 60, 
+                                    87: 24,     93: 73,     95: 75, 
+                                    98: 78},
+
+                        ladders = { 1: 38,      4: 14,      9: 31, 
+                                    21: 42,     28: 84,     36: 44, 
+                                    51: 67,     71: 91,     80: 100}
+                ):
     ''' label each square corresponding to 10x10 gameboard layout
     numbers start in bottom left, go right and follow a boustrophedon path
     to top left.  (the way an ox would plow a field.)
+    And add arrows corresponding to snakes and ladders
     '''
+    arrowDict = {}
     for i in range(10):
         for j in range(10):
             if i % 2 ==0:
@@ -102,8 +112,24 @@ def label_board(arrayA):
                     ones = str(10-j)
                     tens = str(i)
 
-            pylab.text(j+0.45, i+0.45, tens + ones, 
+            pylab.text(j+0.45, i+0.35, tens + ones, 
                         ha='center', va='bottom',color='w')
+            
+            arrowDict[int(tens+ones)] = (j+0.5, i+0.5)
+    
+    for i in snakes:
+        x, y = arrowDict[i]
+        newx, newy = arrowDict[snakes[i]]
+        dx, dy = newx - x, newy - y
+
+        pylab.arrow(x, y, dx, dy, head_length=0.3,head_width=0.20, color = 'red', linestyle = "dotted", length_includes_head = True)
+
+    for j in ladders:
+        x, y = arrowDict[j]
+        newx, newy = arrowDict[ladders[j]]
+        dx, dy = newx - x, newy - y
+
+        pylab.arrow(x, y, dx, dy, head_length=0.3,head_width=0.20, color = '#00FF00', linestyle = "dotted", length_includes_head = True)
         
 def plot_heat(landings):
     
@@ -113,16 +139,20 @@ def plot_heat(landings):
     data = pylab.ma.masked_equal(data, 0)
     
     fig, ax = pylab.subplots()
-    im = ax.pcolormesh(data)
+    
+    #cmap values: http://wiki.scipy.org/Cookbook/Matplotlib/Show_colormaps
+    im = ax.pcolormesh(data, cmap = 'cool')
     fig.colorbar(im, label = "Relative Frequency (%)")
     
+
     #set the background to hatched so removed values appear hatched
     p = pylab.Rectangle((0,0), 10, 10, hatch = 'xx', fill = None, zorder = -1)
     ax.add_patch(p)
     
     pylab.axis('off')
     pylab.title('Snakes and Ladders Heat Map for All Game Squares')
-
+    
+    #add square numbers and snakes and ladders
     label_board(data)
 
     pylab.show()
@@ -135,6 +165,5 @@ def run_cProfile(numGames = 10000):
 if __name__ == "__main__":
     numGames = 10000
     plot_heat(make_array(rel_freq_landings(numGames)))
-
 
 
