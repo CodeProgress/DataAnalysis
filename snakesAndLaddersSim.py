@@ -115,22 +115,21 @@ def label_board(arrayA, snakes  = {16:  6,     47: 26,     49: 11,
             pylab.text(j+0.45, i+0.35, tens + ones, 
                         ha='center', va='bottom',color='w')
             
+            #add coordinates to arrowDict for use when adding snakes and ladders
             arrowDict[int(tens+ones)] = (j+0.5, i+0.5)
     
-    for i in snakes:
-        x, y = arrowDict[i]
-        newx, newy = arrowDict[snakes[i]]
-        dx, dy = newx - x, newy - y
+    def addArrows(aDict, aColor):
+        for i in aDict:
+            x, y = arrowDict[i]
+            newx, newy = arrowDict[aDict[i]]
+            dx, dy = newx - x, newy - y
+    
+            pylab.arrow(x, y, dx, dy, head_length=0.3,head_width=0.20, 
+              color = aColor, linestyle = "dotted", length_includes_head = True)
 
-        pylab.arrow(x, y, dx, dy, head_length=0.3,head_width=0.20, color = 'red', linestyle = "dotted", length_includes_head = True)
-
-    for j in ladders:
-        x, y = arrowDict[j]
-        newx, newy = arrowDict[ladders[j]]
-        dx, dy = newx - x, newy - y
-
-        pylab.arrow(x, y, dx, dy, head_length=0.3,head_width=0.20, color = '#00FF00', linestyle = "dotted", length_includes_head = True)
-        
+    addArrows(snakes, 'red')
+    addArrows(ladders, '#00FF00') 
+    
 def plot_heat(landings):
     
     data = pylab.array(landings)
@@ -165,5 +164,4 @@ def run_cProfile(numGames = 10000):
 if __name__ == "__main__":
     numGames = 10000
     plot_heat(make_array(rel_freq_landings(numGames)))
-
 
