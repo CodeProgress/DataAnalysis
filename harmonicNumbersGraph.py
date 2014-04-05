@@ -1,10 +1,9 @@
 import pylab
 import math
 
-harmSumUntil = {0:0}
-    
-
-def harm(x):
+def harm(x, harmSumUntil = {}):
+    if x <= 0:
+        return 0
     if x in harmSumUntil:
         return harmSumUntil[x]
     harmSumUntil[x] = harm(x-1) + 1./x
