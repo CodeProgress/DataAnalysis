@@ -15,6 +15,7 @@ class Car(object):
         self.timeTolerance  = 1/3600.
         self.averageSpeed   = 0.
         self.timeTailgating = 0.
+        self.curSpeeds      = []
     
     def get_needed_spacing(self):
         return self.curSpeed/10. * self.carLength 
@@ -111,6 +112,7 @@ class Road(object):
         for car in self.carsOnRoad:
             car.move()
             car.incr_time_on_road()
+            car.curSpeeds.append(car.curSpeed)
         
         return
     
@@ -140,10 +142,19 @@ class Data(object):
         pylab.ylabel("Time On Road")
         pylab.legend()
         pylab.show()
+    
+    def plot_cur_speeds(self):
+        for car in self.cars:
+            pylab.plot(car.curSpeeds)
+        pylab.show()
 
 #for i in myRoad.Data.cars: print i      
 
-myRoad = Road(5, 50, 65, 5, 55)
+myRoad = Road(5, 10, 65, 5, 55)
 myRoad.run_simulation(10)
 myRoad.Data.plot_data()
+
+#Maybe plot average speed at each point in time?
+#Should there be oscillations in trailing car speed? 
+#myRoad.Data.plot_cur_speeds()
 
