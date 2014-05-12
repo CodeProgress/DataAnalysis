@@ -6,14 +6,15 @@ import pylab
 
 class Car(object):
     def __init__(self, desiredSpeed, carInFront):
-        self.desiredSpeed = desiredSpeed
-        self.curSpeed     = desiredSpeed
-        self.carInFront   = carInFront
-        self.location     = 0.              #also measures distance traveled
-        self.timeOnRoad   = 0.
-        self.carLength     = .002           #car length is about 1/500 of a mile
-        self.timeTolerance = 1/3600.
-        self.averageSpeed  = 0.
+        self.desiredSpeed   = desiredSpeed
+        self.curSpeed       = desiredSpeed
+        self.carInFront     = carInFront
+        self.location       = 0.              #also measures distance traveled
+        self.timeOnRoad     = 0.
+        self.carLength      = .002           #car length is about 1/500 of a mile
+        self.timeTolerance  = 1/3600.
+        self.averageSpeed   = 0.
+        self.timeTailgating = 0.
     
     def get_needed_spacing(self):
         return self.curSpeed/10. * self.carLength 
@@ -39,7 +40,9 @@ class Car(object):
     def incr_time_on_road(self):
         if self.location > 0:
             self.timeOnRoad += self.timeTolerance
-    
+        if self.is_too_close():
+            self.timeTailgating += self.timeTolerance    
+        
     def calc_average_speed(self, distance):
         self.averageSpeed = self.location/self.timeOnRoad
     
@@ -130,18 +133,17 @@ class Data(object):
         self.cars.append(car)
     
     def plot_data(self):
-        pylab.scatter([x.desiredSpeed for x in self.cars], [x.averageSpeed for x in self.cars])
+        desiredSpeeds = [x.desiredSpeed for x in self.cars]
+        pylab.scatter(desiredSpeeds, [x.timeOnRoad for x in self.cars], label = "Total Time on Road")
+        pylab.scatter(desiredSpeeds, [x.timeTailgating for x in self.cars], color = 'red', label = "Time Tailgating")
         pylab.xlabel("Desired Speed")
-        pylab.ylabel("Average Speed")
+        pylab.ylabel("Time On Road")
+        pylab.legend()
         pylab.show()
 
 #for i in myRoad.Data.cars: print i      
 
-myRoad = Road(10, 50, 65, 5, 50)
+myRoad = Road(5, 50, 65, 5, 55)
 myRoad.run_simulation(10)
 myRoad.Data.plot_data()
-
-
-
-
 
