@@ -16,6 +16,7 @@ class Car(object):
         self.averageSpeed   = 0.
         self.timeTailgating = 0.
         self.curSpeeds      = []
+        self.timeGoingDesiredSpeed = 0
     
     def get_needed_spacing(self):
         return self.curSpeed/10. * self.carLength 
@@ -42,7 +43,9 @@ class Car(object):
         if self.location > 0:
             self.timeOnRoad += self.timeTolerance
         if self.is_too_close():
-            self.timeTailgating += self.timeTolerance    
+            self.timeTailgating += self.timeTolerance
+        if self.curSpeed == self.desiredSpeed:
+            self.timeGoingDesiredSpeed += self.timeTolerance   
         
     def calc_average_speed(self, distance):
         self.averageSpeed = self.location/self.timeOnRoad
@@ -138,9 +141,10 @@ class Data(object):
         desiredSpeeds = [x.desiredSpeed for x in self.cars]
         pylab.scatter(desiredSpeeds, [x.timeOnRoad for x in self.cars], label = "Total Time on Road")
         pylab.scatter(desiredSpeeds, [x.timeTailgating for x in self.cars], color = 'red', label = "Time Tailgating")
+        pylab.scatter(desiredSpeeds, [x.timeGoingDesiredSpeed for x in self.cars], color = 'green', label = "Time Going Desired Speed")
         pylab.xlabel("Desired Speed")
         pylab.ylabel("Time On Road")
-        pylab.legend()
+        pylab.legend(loc = 7)  #loc 7 equals center right
         pylab.show()
     
     def plot_cur_speeds(self):
