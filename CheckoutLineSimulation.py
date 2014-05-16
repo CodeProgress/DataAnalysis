@@ -13,42 +13,45 @@ Does switching lines help?
 What is the relationship between checkout time and total itemsPerSecond across
 all cashiers vs checkout time vs number of cashiers?
 
+If customer is allowed to choose the line, how is overall checkout time affected
+when they choose optimally, choose shortest line, choose randomly?
+
 '''
 
 
 import random
 import collections
 
-class Register(object):
-    def __init__(self, itemsPerSecond):
-        self.itemsPerSecond = itemsPerSecond
-        #self.isWorking      = True
-    
-
+class CheckoutPoint(object):
+    def __init__(self, itemsPerMinute):
+        self.itemsPerMinute = itemsPerMinute
+        self.itemsPerSecond = itemsPerMinute/60.     
+                
+                                
 class Store(object):
-    def __init__(self, numRegisters):
-        self.registers = []
-        for i in range(numRegisters):
-            self.registers.append(collections.deque)
+    def __init__(self):
+        self.customers      = []
+        self.checkOutPoints = {}        #key: CheckoutPoint object, value: Queue
     
-    def find_shortest_line(self):
-        return min(self.registers, key = len)
+    def acquire_customer(self, customer):
+        self.customers.append(customer)
     
-    def join_line(self, customer, registerNumber):
-        self.registers[registerNumber].append(customer)
+    def open_checkout_point(self, checkoutPoint):
+        self.checkOutPoints[checkoutPoint] = collections.deque
         
-    def rem_from_line(self):
-        """returns the customer object of the next in line"""
-        return self.registers.popleft()
-    
-    
+        
 class Customer(object):
-    def __init__(self, numItems):
-        self.numItems        = numItems
+    def __init__(self, numItems = None):
+        if numItems == None: self.numItems = max(1, random.gauss(30, 10))
+        else: self.numItems = numItems
+
         self.timeInLine      = 0
         self.timeCheckingOut = 0
         self.totalTime       = 0
-        #self.paymentProblem  = False
     
-        
+store = Store()
+     
+register = CheckoutPoint(10)
+
+store.open_checkout_point(register)
         
