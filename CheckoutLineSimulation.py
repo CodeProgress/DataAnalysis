@@ -30,11 +30,18 @@ class CheckoutPoint(object):
         self.line            = collections.deque()
         
     def assign_customer(self, customer):
-        self.currentCustomer = customer
+        self.line.append(customer)
+        if self.currentCustomer == None:
+            self.currentCustomer = self.line.popleft()
     
     def process_customer(self):
         if self.currentCustomer == None: return
         self.currentCustomer.numItems -= self.itemsPerSecond
+    
+    def is_done_with_customer(self):
+        if self.currentCustomer == None:
+            return True
+        return self.currentCustomer.numItems <= 0
                                 
 class Store(object):
     def __init__(self):
@@ -60,21 +67,20 @@ class Store(object):
             self.open_checkout_point()
 
         flag = True
+        
+        keys = self.checkoutPoints.keys()
         while flag:
             flag = False
-            for cp in self.checkoutPoints.keys():
-                if cp.currentCustomer == None and self.checkoutPoints[cp]:
-                    cp.assign_customer(self.checkoutPoints.popleft())
-                else:
-                    if self.customers:
-                        cp.assign_customer(self.customers.pop())
+            for cp in keys:
+
+                if self.customers:
+                    cp.assign_customer(self.customers.pop())
                     
                 if cp.currentCustomer:
                     flag = True
-                    #print cp.currentCustomer.numItems
                     cp.process_customer()
                     cp.currentCustomer.timeInLine += 1
-                    if cp.currentCustomer.numItems <= 0:
+                    if cp.is_done_with_customer():
                         self.checkedOutCustomers.append(cp.currentCustomer)
                         cp.currentCustomer = None
         
@@ -99,10 +105,8 @@ class Customer(object):
 store = Store()
      
 register = CheckoutPoint()
-
-store.open_checkout_point()
         
-store.run_sim(10, 3)
+store.run_sim(10, 4)
 
 #this should be printing 10 customers, not 4...
 for i in store.checkedOutCustomers:
