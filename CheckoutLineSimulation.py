@@ -31,22 +31,27 @@ class CheckoutPoint(object):
         
     def assign_customer(self, customer):
         self.line.append(customer)
-        if self.currentCustomer == None:
-            self.currentCustomer = self.line.popleft()
     
     def process_customer(self):
-        if self.currentCustomer == None: return
+        if self.currentCustomer == None: 
+            return
         self.currentCustomer.numItems -= self.itemsPerSecond
+        self.currentCustomer.timeInLine += 1
     
     def is_done_with_customer(self):
         if self.currentCustomer == None:
             return True
         return self.currentCustomer.numItems <= 0
+    
+    def take_next_customer(self):
+        if self.currentCustomer == None:
+            if self.line:
+                self.currentCustomer = self.line.popleft()
                                 
 class Store(object):
     def __init__(self):
         self.customers      = []
-        self.checkoutPoints = {}
+        self.checkoutPoints = []
         self.checkedOutCustomers = []
     
     def acquire_customer(self, customer):
@@ -56,34 +61,39 @@ class Store(object):
         self.checkoutPoints[checkOutPoint].append(customer)
     
     def open_checkout_point(self):
-        self.checkoutPoints[CheckoutPoint()] = []  # consider making this a deque
+        self.checkoutPoints.append(CheckoutPoint())  # consider making this a deque
+    
+    def distribute_customers(self):
+        index = 0
+        while self.customers:
+            nextCust = self.customers.pop()
+            nextClerk = self.checkoutPoints[index]
+            nextClerk.assign_customer(nextCust)
+            index += 1
+            index %= len(self.checkoutPoints)        
     
     def run_sim(self, numCustomers, numCheckoutPoints):
         for i in range(numCustomers):
             cust = Customer()
             self.customers.append(cust)
         
+        
         for j in range(numCheckoutPoints):
             self.open_checkout_point()
-
-        flag = True
+            
+        self.distribute_customers()
         
-        keys = self.checkoutPoints.keys()
-        while flag:
-            flag = False
-            for cp in keys:
-
-                if self.customers:
-                    cp.assign_customer(self.customers.pop())
+        print self.checkoutPoints
+        
+        for cp in self.checkoutPoints:
+            cp.take_next_customer()
+            cp.process_customer()
+            if cp.currentCustomer and cp.is_done_with_customer():
+                self.checkedOutCustomers.append(cp.currentCustomer)
+                cp.currentCustomer == None
+                cp.take_next_customer()
                     
-                if cp.currentCustomer:
-                    flag = True
-                    cp.process_customer()
-                    cp.currentCustomer.timeInLine += 1
-                    if cp.is_done_with_customer():
-                        self.checkedOutCustomers.append(cp.currentCustomer)
-                        cp.currentCustomer = None
-        
+                
         
 class Customer(object):
     def __init__(self, numItems = None):
