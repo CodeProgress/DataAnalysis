@@ -18,106 +18,54 @@ when they choose optimally, choose shortest line, choose randomly?
 
 '''
 
-
-import random
 import collections
+import random
 
-class CheckoutPoint(object):
-    def __init__(self, itemsPerMinute = 20):
-        self.itemsPerMinute  = itemsPerMinute
-        self.itemsPerSecond  = itemsPerMinute/60.
-        self.currentCustomer = None
-        self.line            = collections.deque()
-        
-    def assign_customer(self, customer):
-        self.line.append(customer)
+class Cashier(object):
+    def __init__(self, itemsPerMinute):
+        self.itemsPerMinute = itemsPerMinute
+        self.itemsPerSecond = itemsPerMinute / 60.
+        self.line           = collections.deque()
     
-    def process_customer(self):
-        if self.currentCustomer == None: 
-            return
-        self.currentCustomer.numItems -= self.itemsPerSecond
-        self.currentCustomer.timeInLine += 1
+    def checkout_customer(self, customer):
+        while customer.numItems > 0:
+            customer.numItems -= self.itemsPerSecond
+            customer.totalTime += 1
     
-    def is_done_with_customer(self):
-        if self.currentCustomer == None:
-            return True
-        return self.currentCustomer.numItems <= 0
+class Customer(object):
+    def __init__(self, numItems):
+        self.startingItems = numItems
+        self.numItems      = numItems
+        self.totalTime     = 0
     
-    def take_next_customer(self):
-        if self.currentCustomer == None:
-            if self.line:
-                self.currentCustomer = self.line.popleft()
-                                
+    def __str__(self):
+        return " Starting Items = {} \n Num Items = {} \n Total Time = {}".\
+            format(self.startingItems, self.numItems, self.totalTime)
+    
 class Store(object):
     def __init__(self):
-        self.customers      = []
-        self.checkoutPoints = []
-        self.checkedOutCustomers = []
+        self.cashiers           = []
+        self.customers          = []
+        self.completedCustomers = []
     
-    def acquire_customer(self, customer):
-        self.customers.append(customer)
+    def add_cashier(self, itemsPerMinute = 10):
+        newCashier = Cashier(itemsPerMinute)
+        self.cashiers.append(newCashier)
     
-    def assign_customer_to_checkout_point(self, checkOutPoint, customer):
-        self.checkoutPoints[checkOutPoint].append(customer)
-    
-    def open_checkout_point(self):
-        self.checkoutPoints.append(CheckoutPoint())  # consider making this a deque
-    
-    def distribute_customers(self):
-        index = 0
-        while self.customers:
-            nextCust = self.customers.pop()
-            nextClerk = self.checkoutPoints[index]
-            nextClerk.assign_customer(nextCust)
-            index += 1
-            index %= len(self.checkoutPoints)        
-    
-    def run_sim(self, numCustomers, numCheckoutPoints):
+    def add_customers(self, numCustomers = 1):
         for i in range(numCustomers):
-            cust = Customer()
-            self.customers.append(cust)
-        
-        
-        for j in range(numCheckoutPoints):
-            self.open_checkout_point()
-            
-        self.distribute_customers()
-        
-        print self.checkoutPoints
-        
-        for cp in self.checkoutPoints:
-            cp.take_next_customer()
-            cp.process_customer()
-            if cp.currentCustomer and cp.is_done_with_customer():
-                self.checkedOutCustomers.append(cp.currentCustomer)
-                cp.currentCustomer == None
-                cp.take_next_customer()
-                    
-                
-        
-class Customer(object):
-    def __init__(self, numItems = None):
-        if numItems == None: 
-            self.numItems = max(1, random.gauss(30, 10))
-        else: 
-            self.numItems = numItems
-        
-        self.timeInLine      = 0
-        self.timeCheckingOut = 0
-        self.totalTime       = 0
-        
-    def __str__(self):
-        return 'Time in line: {}, time checking out {}, total time{}'.\
-                format(self.timeInLine, self.timeCheckingOut, self.totalTime)
+            self.customers.append(Customer(random.randint(10, 20)))
     
-        
-    
-store = Store()
-     
-register = CheckoutPoint()
-        
-store.run_sim(10, 4)
+    def simulate_one_cashier(self, numCustomers):
+        self.add_cashier()
+        self.add_customers(numCustomers)
+        self.cashiers[0].line = self.customers
+        while self.cashiers[0].line:
+            cust = self.customers.pop()
+            self.cashiers[0].checkout_customer(cust)
+            self.completedCustomers.append(cust)
 
-#this should be printing 10 customers, not 4...
-for i in store.checkedOutCustomers:
-    print i.numItems
+s = Store()
+s.simulate_one_cashier(10)
+for cust in s.completedCustomers:
+    print cust
