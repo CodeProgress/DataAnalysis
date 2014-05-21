@@ -28,6 +28,7 @@ class Cashier(object):
         self.line           = collections.deque()
     
     def checkout_customer(self, customer):
+        customer.cashierSpeed = self.itemsPerSecond
         while customer.numItems > 0:
             customer.numItems -= self.itemsPerSecond
             customer.totalTime += 1
@@ -37,10 +38,10 @@ class Customer(object):
         self.startingItems = numItems
         self.numItems      = numItems
         self.totalTime     = 0
+        self.cashierSpeed  = None
     
     def __str__(self):
-        return " Starting Items = {} \n Num Items = {} \n Total Time = {}".\
-            format(self.startingItems, self.numItems, self.totalTime)
+        return str(vars(self))
     
 class Store(object):
     def __init__(self):
@@ -48,8 +49,12 @@ class Store(object):
         self.customers          = []
         self.completedCustomers = []
     
-    def add_cashier(self, itemsPerMinute = 10):
-        newCashier = Cashier(itemsPerMinute)
+    def add_cashier(self, itemsPerMinute = 'random'):
+        if itemsPerMinute == 'random':
+            newCashier = Cashier(random.randint(10,100))
+        else:    
+            newCashier = Cashier(itemsPerMinute)
+
         self.cashiers.append(newCashier)
     
     def add_customers(self, numCustomers = 1):
