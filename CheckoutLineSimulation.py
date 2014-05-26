@@ -1,7 +1,7 @@
 #Checkout Line Simulation
 
 '''
-Questions this simulation hope to answer:
+Questions this simulation hopes to answer:
 
 For every additional register, how much faster is the checkout time?
 
@@ -74,3 +74,5 @@ s = Store()
 s.simulate_one_cashier(10)
 for cust in s.completedCustomers:
     print cust
+
+print sum(customer.totalTime for customer in s.completedCustomers)
