@@ -26,12 +26,14 @@ class Cashier(object):
         self.itemsPerMinute = itemsPerMinute
         self.itemsPerSecond = itemsPerMinute / 60.
         self.line           = collections.deque()
+        self.timeWorking    = 0
     
     def checkout_customer(self, customer):
         customer.cashierSpeed = self.itemsPerSecond
         while customer.numItems > 0:
             customer.numItems -= self.itemsPerSecond
             customer.totalTime += 1
+            self.timeWorking   += 1
     
 class Customer(object):
     def __init__(self, numItems):
@@ -76,3 +78,4 @@ for cust in s.completedCustomers:
     print cust
 
 print sum(customer.totalTime for customer in s.completedCustomers)
+print s.cashiers[0].timeWorking
