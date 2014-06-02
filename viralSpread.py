@@ -28,13 +28,30 @@ def simulate_viral_spread(numPeople,
     
     startingPercent  = numStartingWithVirus/float(numPeople)*100
     endingPercent    = sum(population)/float(numPeople) * 100
+    PercentChange    = ((endingPercent - startingPercent) / startingPercent) * 100
     if verbose:
         print '{} percent of the population started with the virus'.format(startingPercent)
         print '{} percent of the population is infected'.format(endingPercent)   
-    return startingPercent, endingPercent
+
+    return PercentChange
 
 
-print simulate_viral_spread(numPeople           = 10000, 
-                            infectionRate        = .05, 
-                            numEncounters        = 50000,
-                            numStartingWithVirus = 1000)
+numPeople            = 1000
+infectionRate        = 0. 
+numEncounters        = 10000
+numStartingWithVirus = 100
+
+incr = .05
+testCases = []
+
+for i in range(15):
+    testCases.append([numPeople, infectionRate, numEncounters, numStartingWithVirus])
+    infectionRate += incr
+
+
+pylab.plot([simulate_viral_spread(*x) for x in testCases])
+
+pylab.ylabel("Percent increase from starting rate to ending rate")
+pylab.xlabel("nth trial")
+pylab.show()
+
