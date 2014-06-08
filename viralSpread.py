@@ -35,23 +35,23 @@ def simulate_viral_spread(numPeople,
 
     return PercentChange
 
+def plot_viral_spread(numPeople, 
+                      startingInfectionRate, 
+                      numEncounters, 
+                      numStartingWithVirus,
+                      incr):
+    infectionRate = float(startingInfectionRate)
+    testCases = []
 
-numPeople            = 1000
-infectionRate        = 0. 
-numEncounters        = 10000
-numStartingWithVirus = 100
-
-incr = .05
-testCases = []
-
-for i in range(15):
-    testCases.append([numPeople, infectionRate, numEncounters, numStartingWithVirus])
-    infectionRate += incr
-
-
-pylab.plot([simulate_viral_spread(*x) for x in testCases])
-
-pylab.ylabel("Percent increase from starting rate to ending rate")
-pylab.xlabel("nth trial")
-pylab.show()
-
+    for i in range(10):
+        testCases.append([numPeople, infectionRate, numEncounters, numStartingWithVirus])
+        infectionRate += incr
+    
+    
+    pylab.plot([simulate_viral_spread(*x) for x in testCases])
+    
+    pylab.ylabel("Percent increase from starting rate to ending rate")
+    pylab.xlabel("nth trial")
+    pylab.show()
+    
+plot_viral_spread(1000, 0,  10000, 100, .05)
