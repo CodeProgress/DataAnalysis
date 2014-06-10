@@ -9,9 +9,7 @@ def simulate_viral_spread(numPeople,
                           numStartingWithVirus,
                           verbose = False):
     """
-    Returns two values:
-        the percentage of the population starting with the virus
-        the percentage ending with the virus
+    Returns the percentage increase in the number of people who have the virus
     """
     population = [0 for i in range(numPeople)]
     
@@ -40,10 +38,11 @@ def plot_viral_spread(numPeople,
                       numEncounters, 
                       numStartingWithVirus,
                       incr):
+    """incr increases the infection rate.  0 < incr < 1"""
     infectionRate = float(startingInfectionRate)
     testCases = []
 
-    for i in range(10):
+    for i in range(int(1/incr)):
         testCases.append([numPeople, infectionRate, numEncounters, numStartingWithVirus])
         infectionRate += incr
     
@@ -53,5 +52,8 @@ def plot_viral_spread(numPeople,
     pylab.ylabel("Percent increase from starting rate to ending rate")
     pylab.xlabel("nth trial")
     pylab.show()
-    
-plot_viral_spread(1000, 0,  10000, 100, .05)
+        
+plot_viral_spread(1000, 0,  10000, 100, .02)
+
+
+
