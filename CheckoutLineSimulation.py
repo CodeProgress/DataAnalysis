@@ -1,5 +1,8 @@
 #Checkout Line Simulation
 
+import pylab
+
+
 '''
 Questions this simulation hopes to answer:
 
@@ -73,9 +76,10 @@ class Store(object):
             self.completedCustomers.append(cust)
 
 s = Store()
-s.simulate_one_cashier(10)
-for cust in s.completedCustomers:
-    print cust
+s.simulate_one_cashier(20)
+
+pylab.plot([cust.totalTime for cust in s.completedCustomers])
+pylab.show()
 
 print sum(customer.totalTime for customer in s.completedCustomers)
 print s.cashiers[0].timeWorking
