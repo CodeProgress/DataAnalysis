@@ -50,10 +50,19 @@ def plot_viral_spread(numPeople,
     pylab.plot([simulate_viral_spread(*x) for x in testCases])
     
     pylab.ylabel("Percent increase from starting rate to ending rate")
-    pylab.xlabel("nth trial")
+    pylab.xlabel("nth encounter")
     pylab.show()
         
-plot_viral_spread(1000, 0,  10000, 100, .02)
+#plot_viral_spread(1000, 0,  10000, 100, .02)
 
+#for i in range(100, 6100, 1000):
+#    plot_viral_spread(1000, 0,  i, 100, .02)
+
+initialRate = .01
+rates = [initialRate]
+for rate in range(9):
+    rates.append(rates[-1] + initialRate)
+for i in rates:
+    plot_viral_spread(1000, 0,  1000, 100, i)
 
 
