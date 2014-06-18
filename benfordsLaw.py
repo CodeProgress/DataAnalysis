@@ -43,12 +43,16 @@ def make_hist_random(numDigits, numTrials, uniform = True):
     
     return hist[1:]
 
+def plot_hist(*hists):
+    for hist in hists:    
+        pylab.scatter(range(1, 10), hist)
+    pylab.title("Benford's Law")
+    pylab.xlabel("Digit")
+    pylab.ylabel("Number of Occurrences")
+    pylab.xticks(range(1,10))
+    pylab.show()
 
+histFib = make_hist_fib(10000)
+histRandom = make_hist_random(100, 1000)
+plot_hist(histFib, histRandom)
 
-#def plot_hist(hist, bins = 9):
-#    pylab.hist(hist, bins=bins)
-#    pylab.show()
-#
-#hist = make_hist(1000)
-#plot_hist(hist)
-print make_hist(100)
