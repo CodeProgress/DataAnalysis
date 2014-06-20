@@ -43,16 +43,22 @@ def make_hist_random(numDigits, numTrials, uniform = True):
     
     return hist[1:]
 
-def plot_hist(*hists):
+def plot_hist(colors, *hists):
+    index = 0
+    maxIndex = len(colors)
     for hist in hists:    
-        pylab.scatter(range(1, 10), hist)
+        pylab.scatter(range(1, 10), hist, color = colors[index])
+        index += 1
+        index %= maxIndex
     pylab.title("Benford's Law")
     pylab.xlabel("Digit")
     pylab.ylabel("Number of Occurrences")
     pylab.xticks(range(1,10))
     pylab.show()
 
+
 histFib = make_hist_fib(10000)
-histRandom = make_hist_random(100, 1000)
-plot_hist(histFib, histRandom)
+histRandom = make_hist_random(100, 10000)
+colors = ['b', 'r']
+plot_hist(colors, histFib, histRandom)
 
