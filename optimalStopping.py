@@ -24,34 +24,49 @@ def pick_val(values, stoppingPoint):
                 return values[i]
     return values[-1]
 
-def sim_outcome(numVals, stoppingPoint, numTrials):
+def pick_ccr_val(values, numCandidates):
+    """Strategy: Candidate Count Rule
+    Read through values until numCandidates are seen.  Return next candidate
+    If numCandidates candidates not seen, return last value"""
+    best = values[0] - 1
+    numCandsSeen = 0
+    for i in range(len(values)):
+        if values[i] > best:
+            numCandsSeen += 1
+            if numCandsSeen == numCandidates:
+                return values[i]                
+
+    return values[-1]
+        
+
+def sim_outcome(numVals, stoppingPoint, numTrials, strategyFunction):
     """returns the average result over numTrials"""
     total = 0.
     for i in range(numTrials):
         values = random.sample(xrange(numVals), numVals)
         #values = [random.randint(0, numVals-1) for x in range(numVals)]
-        total += pick_val(values, stoppingPoint)
+        total += strategyFunction(values, stoppingPoint)
     return total/numTrials 
 
-def sim_outcome_list(numVals, stoppingPoint, numTrials):
+def sim_outcome_list(numVals, stoppingPoint, numTrials, strategyFunction):
     """returns a list of the chosen values when stopping point reached"""
     total = []
     for i in range(numTrials):
         values = random.sample(xrange(numVals), numVals)
         #values = [random.randint(0, numVals-1) for x in range(numVals)]
-        total.append(pick_val(values, stoppingPoint))
+        total.append(strategyFunction(values, stoppingPoint))
     return total 
 
-def plot_average_outcome(numVals, numTrials):
-    pylab.plot([sim_outcome(numVals, x, numTrials) for x in range(numVals)])
+def plot_average_outcome(numVals, numTrials, strategyFunction):
+    pylab.plot([sim_outcome(numVals, x, numTrials, strategyFunction) for x in range(numVals)])
     pylab.xlabel("Stopping Point")
     pylab.ylabel("Average Expected Outcome")
     pylab.xticks(range(0,numVals, 5))
 
-def plot_chance_of_optimal(numVals, numTrials):
+def plot_chance_of_optimal(numVals, numTrials, strategyFunction):
     results = []
     for x in range(numVals):
-        outcomes = sim_outcome_list(numVals, x, numTrials)    
+        outcomes = sim_outcome_list(numVals, x, numTrials, strategyFunction)    
         results.append(sum(1 for x in outcomes if x == numVals -1)/float(numTrials))
     pylab.plot(results)
     pylab.title("Likelihood of Stopping Optimally")
@@ -59,6 +74,7 @@ def plot_chance_of_optimal(numVals, numTrials):
     pylab.ylabel("Percent (as decimal between 0 and 1)")
     pylab.xticks(range(0,numVals, 5))
 
-plot_chance_of_optimal(100,500)
+plot_chance_of_optimal(100,500, pick_val)
+#plot_chance_of_optimal(100,500, pick_ccr_val)
 #plot_average_outcome(100,500)
 pylab.show()
