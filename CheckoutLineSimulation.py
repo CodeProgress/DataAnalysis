@@ -68,4 +68,59 @@ class Customer(object):
     def __str__(self):
         return str(vars(self))
         
+class Store(object):
+    def __init__(self):
+        self.cashiers           = []
+        self.customersShopping  = set()
+        self.readyToCheckout    = set()
+        self.completedCustomers = []
+        self.numCashiers        = 0
+        self.time               = 0  #seconds
+    
+    def add_cashier(self): 
+        itemsPerSecond = 1 
+        newCashier = Cashier(itemsPerSecond, self.numCashiers)
+        self.cashiers.append(newCashier)
+        self.numCashiers += 1
+    
+    def add_customer_to_store(self):
+        if random.random() > .9:
+            self.customersShopping.add(Customer()) 
+    
+    def customers_shop(self):
+        '''This is the most expensive method, taking up half of total program
+        runtime. This could be calculated ahead of time and fed directly into
+        move_ready_customers_to_checkout
+        '''
+        for cust in self.customersShopping:
+            cust.timeInStore += 1
+            cust.add_to_basket()
+            if cust.is_ready_to_checkout():
+                self.readyToCheckout.add(cust)
+    
+    def move_ready_customers_to_checkout(self):
+        self.customersShopping -= self.readyToCheckout
+        for cust in self.readyToCheckout:
+            cust.pick_shortest_line(self.cashiers).add_customer_to_line(cust)  
+        self.readyToCheckout = set()
+    
+    def checkout_customers(self):
+        for cashier in self.cashiers:
+            if cashier.checkout_customer():
+                self.completedCustomers.append(cashier.most_resent_completed_customer())
+        
+    def run_simulation(self, numCashiers = 3, numSeconds = 10000):
+        for cashier in range(numCashiers):
+            self.add_cashier()
+        
+        while self.time < numSeconds:
+            self.add_customer_to_store()
+            self.customers_shop()
+            self.move_ready_customers_to_checkout()
+            self.checkout_customers()
+            
+            self.time += 1
+            
+        return self.completedCustomers
+        
         
