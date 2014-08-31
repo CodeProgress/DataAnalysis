@@ -1,7 +1,7 @@
 #Checkout Line Simulation
 
-import pylab
-
+import random
+import Queue
 
 '''
 Questions this simulation hopes to answer:
@@ -20,66 +20,30 @@ If customer is allowed to choose the line, how is overall checkout time affected
 when they choose optimally, choose shortest line, choose randomly?
 
 '''
-
-import collections
-import random
+#Time is an integer
 
 class Cashier(object):
-    def __init__(self, itemsPerMinute):
-        self.itemsPerMinute = itemsPerMinute
-        self.itemsPerSecond = itemsPerMinute / 60.
-        self.line           = collections.deque()
-        self.timeWorking    = 0
-    
-    def checkout_customer(self, customer):
-        customer.cashierSpeed = self.itemsPerSecond
-        while customer.numItems > 0:
-            customer.numItems -= self.itemsPerSecond
-            customer.totalTime += 1
-            self.timeWorking   += 1
-    
-class Customer(object):
-    def __init__(self, numItems):
-        self.startingItems = numItems
-        self.numItems      = numItems
-        self.totalTime     = 0
-        self.cashierSpeed  = None
-    
-    def __str__(self):
-        return str(vars(self))
-    
-class Store(object):
-    def __init__(self):
-        self.cashiers           = []
-        self.customers          = []
+    def __init__(self, itemsPerSecond, ID):
+        self.itemsPerSecond     = itemsPerSecond
+        self.currentCustomer    = None
         self.completedCustomers = []
+        self.line               = Queue.Queue()
+        self.checkoutTime       = 0.
+        self.cashierID          = ID
     
-    def add_cashier(self, itemsPerMinute = 'random'):
-        if itemsPerMinute == 'random':
-            newCashier = Cashier(random.randint(10,100))
-        else:    
-            newCashier = Cashier(itemsPerMinute)
-
-        self.cashiers.append(newCashier)
+    def checkout_customer(self):
+        if self.currentCustomer:
+            self.currentCustomer.numItems -= self.itemsPerSecond
+            if self.currentCustomer.numItems < 0:
+                self.completedCustomers.append(self.currentCustomer)
+                self.currentCustomer = None
+                return True
+        elif not self.line.empty(): 
+            self.currentCustomer = self.line.get()  
+        return False  
+            
+    def add_customer_to_line(self, customer):
+        self.line.put(customer)
     
-    def add_customers(self, numCustomers = 1):
-        for i in range(numCustomers):
-            self.customers.append(Customer(random.randint(10, 20)))
-    
-    def simulate_one_cashier(self, numCustomers):
-        self.add_cashier()
-        self.add_customers(numCustomers)
-        self.cashiers[0].line = self.customers
-        while self.cashiers[0].line:
-            cust = self.customers.pop()
-            self.cashiers[0].checkout_customer(cust)
-            self.completedCustomers.append(cust)
-
-s = Store()
-s.simulate_one_cashier(20)
-
-pylab.plot([cust.totalTime for cust in s.completedCustomers])
-pylab.show()
-
-print sum(customer.totalTime for customer in s.completedCustomers)
-print s.cashiers[0].timeWorking
+    def most_resent_completed_customer(self):
+        return self.completedCustomers[-1]
