@@ -109,7 +109,7 @@ class Store(object):
             if cashier.checkout_customer():
                 self.completedCustomers.append(cashier.most_resent_completed_customer())
         
-    def run_simulation(self, numCashiers = 3, numSeconds = 10000):
+    def run_simulation(self, numCashiers = 3, numSeconds = 5000):
         for cashier in range(numCashiers):
             self.add_cashier()
         
@@ -123,4 +123,5 @@ class Store(object):
             
         return self.completedCustomers
         
-        
+store = Store()
+store.run_simulation()
