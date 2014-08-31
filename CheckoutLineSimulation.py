@@ -47,3 +47,25 @@ class Cashier(object):
     
     def most_resent_completed_customer(self):
         return self.completedCustomers[-1]
+        
+class Customer(object):
+    def __init__(self):
+        self.numItems    = 0
+        self.timeInStore = 0
+        self.willLeaveAfterNumSeconds = abs(random.gauss(1500, 1000))
+    
+    def add_to_basket(self):
+        #add an item per minute
+        if self.timeInStore % 60 == 0:
+            self.numItems += 1
+    
+    def is_ready_to_checkout(self):
+        return self.timeInStore > self.willLeaveAfterNumSeconds
+    
+    def pick_shortest_line(self, cashiers):
+        return sorted(cashiers, key=lambda x: x.line.qsize())[0]
+        
+    def __str__(self):
+        return str(vars(self))
+        
+        
