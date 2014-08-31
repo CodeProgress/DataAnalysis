@@ -38,8 +38,6 @@ class Cashier(object):
                 self.completedCustomers.append(self.currentCustomer)
                 self.currentCustomer = None
                 return True
-        elif not self.line.empty(): 
-            self.currentCustomer = self.line.get()  
         return False  
             
     def add_customer_to_line(self, customer):
@@ -50,9 +48,13 @@ class Cashier(object):
         
 class Customer(object):
     def __init__(self):
-        self.numItems    = 0
-        self.timeInStore = 0
+        self.startingNumItems         = 0
+        self.numItems                 = 0
+        self.timeInStore              = 0
         self.willLeaveAfterNumSeconds = abs(random.gauss(1500, 1000))
+        self.startTime                = 0
+        self.timeOnLine               = 0
+        self.timeAtRegister           = 0
     
     def add_to_basket(self):
         #add an item per minute
@@ -60,11 +62,22 @@ class Customer(object):
             self.numItems += 1
     
     def is_ready_to_checkout(self):
-        return self.timeInStore > self.willLeaveAfterNumSeconds
+        if self.timeInStore > self.willLeaveAfterNumSeconds:
+            self.startingNumItems = int(self.numItems)
+            return True
+        return False
     
     def pick_shortest_line(self, cashiers):
         return sorted(cashiers, key=lambda x: x.line.qsize())[0]
-        
+    
+    def calc_time_on_line(self, currentTime):
+        temp = self.startTime
+        self.startTime = currentTime    #reset startTime for calc_time_at_register
+        self.timeOnLine = currentTime - temp
+    
+    def calc_time_at_register(self, currentTime):
+        self.timeAtRegister = currentTime - self.startTime   
+                
     def __str__(self):
         return str(vars(self))
         
@@ -101,15 +114,29 @@ class Store(object):
     def move_ready_customers_to_checkout(self):
         self.customersShopping -= self.readyToCheckout
         for cust in self.readyToCheckout:
-            cust.pick_shortest_line(self.cashiers).add_customer_to_line(cust)  
+            cust.pick_shortest_line(self.cashiers).add_customer_to_line(cust)
+            cust.startTime = self.time  
         self.readyToCheckout = set()
+    
+    def finish_customer_checkout(self, cashier):
+        finishedCust = cashier.most_resent_completed_customer()
+        finishedCust.calc_time_at_register(self.time)
+        self.completedCustomers.append(finishedCust)
+    
+    def move_next_in_line_to_register(self, cashier):
+        if not cashier.line.empty():
+            cashier.currentCustomer = cashier.line.get()
+            cashier.currentCustomer.calc_time_on_line(self.time)
     
     def checkout_customers(self):
         for cashier in self.cashiers:
-            if cashier.checkout_customer():
-                self.completedCustomers.append(cashier.most_resent_completed_customer())
-        
-    def run_simulation(self, numCashiers = 3, numSeconds = 5000):
+            isCheckoutComplete = cashier.checkout_customer()
+            if isCheckoutComplete:
+                self.finish_customer_checkout(cashier)
+            if cashier.currentCustomer == None:
+                self.move_next_in_line_to_register(cashier)
+                  
+    def run_simulation(self, numCashiers = 3, numSeconds = 10000):
         for cashier in range(numCashiers):
             self.add_cashier()
         
