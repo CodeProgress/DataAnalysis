@@ -156,5 +156,51 @@ class Store(object):
         self.newCustomers        = []
         self.completedCustomers  = []
 
+def plot_effect_num_cashiers_on_cust_wait_time(customersPerMinute = 10, numCashiersToTestUpTo = 12):
+    assert customersPerMinute > 0
+    assert numCashiersToTestUpTo > 0
+    assert type(customersPerMinute) == type(numCashiersToTestUpTo) == int
+    store = Store(customersPerMinute)
+    worstCase = []
+    averageCase = []
+    rangeOfNumCashiers = range(1, numCashiersToTestUpTo + 1)
+    for i in rangeOfNumCashiers:
+        store.run_simulation(i)
+        timeOnLineData = [x.timeOnLine / 60. for x in store.completedCustomers]
+        averageCase.append(pylab.average(timeOnLineData))
+        worstCase.append(max(timeOnLineData))
+        store.reset_store()
+    
+    pylab.plot(rangeOfNumCashiers, worstCase, label='Longest Time on Line') 
+    pylab.plot(rangeOfNumCashiers, averageCase, label = 'Average Time on Line')
+    
+    pylab.title('Effect of Adding Additional Cashiers \n on Customer Wait Time')
+    pylab.xlabel('Number of Cashiers')
+    pylab.ylabel('Customer Wait Time in Minutes \n (if store receives {} customers per minute)'.format(store.customersPerMinute))
+    pylab.legend()
+    pylab.xticks(rangeOfNumCashiers)  
+    pylab.show()
 
+def plot_time_on_line(customersPerMinute = 10, numCashiers = 4):
+    store = Store(customersPerMinute)
+    store.run_simulation(numCashiers)
+    pylab.plot([x.timeOnLine /60. for x in store.completedCustomers])
+    pylab.title('')
+    pylab.xlabel('Nth Customer')
+    pylab.ylabel('Customer Wait Time in Minutes \n (if store receives {} customers per minute)'.format(store.customersPerMinute))
+    pylab.legend()  
+    pylab.show()
+
+plot_effect_num_cashiers_on_cust_wait_time(20, 10)
+
+#plot_time_on_line(10, 4)
+
+##Simple test
+#store = Store()
+#store.run_simulation(3)
+#print store.percent_of_total_customers_completed()
+
+##Performance Profile
+#store = Store()
+#cProfile.run('store.run_simulation()')
 
