@@ -2,6 +2,8 @@
 
 import random
 import Queue
+import pylab
+#import cProfile
 
 '''
 Questions this simulation hopes to answer:
@@ -50,23 +52,17 @@ class Customer(object):
     def __init__(self):
         self.startingNumItems         = 0
         self.numItems                 = 0
-        self.timeInStore              = 0
-        self.willLeaveAfterNumSeconds = abs(random.gauss(1500, 1000))
         self.startTime                = 0
         self.timeOnLine               = 0
         self.timeAtRegister           = 0
+        self.averageNumItems          = 20
+        self.stdDev                   = 10
     
-    def add_to_basket(self):
-        #add an item per minute
-        if self.timeInStore % 60 == 0:
-            self.numItems += 1
-    
-    def is_ready_to_checkout(self):
-        if self.timeInStore > self.willLeaveAfterNumSeconds:
-            self.startingNumItems = int(self.numItems)
-            return True
-        return False
-    
+    def finish_shopping(self, time):
+        self.numItems = int(abs(random.gauss(self.averageNumItems, self.stdDev)))
+        self.startingNumItems = int(self.numItems)
+        self.startTime = time 
+        
     def pick_shortest_line(self, cashiers):
         return sorted(cashiers, key=lambda x: x.line.qsize())[0]
     
@@ -82,41 +78,34 @@ class Customer(object):
         return str(vars(self))
         
 class Store(object):
-    def __init__(self):
-        self.cashiers           = []
-        self.customersShopping  = set()
-        self.readyToCheckout    = set()
-        self.completedCustomers = []
-        self.numCashiers        = 0
-        self.time               = 0  #seconds
-    
+    def __init__(self, customersPerMinute = 10):
+        self.customersPerMinute  = customersPerMinute
+        self.time                = 0  #seconds
+        self.numCashiers         = 0
+        self.totalNumOfCustomers = 0.
+        self.cashiers            = []
+        self.newCustomers        = []
+        self.completedCustomers  = []
+        
     def add_cashier(self): 
         itemsPerSecond = 1 
         newCashier = Cashier(itemsPerSecond, self.numCashiers)
         self.cashiers.append(newCashier)
         self.numCashiers += 1
     
-    def add_customer_to_store(self):
-        if random.random() > .9:
-            self.customersShopping.add(Customer()) 
+    def create_customers(self, numCustomersToCreate = 1):
+        for i in range(numCustomersToCreate):
+            self.newCustomers.append(Customer())
     
-    def customers_shop(self):
-        '''This is the most expensive method, taking up half of total program
-        runtime. This could be calculated ahead of time and fed directly into
-        move_ready_customers_to_checkout
-        '''
-        for cust in self.customersShopping:
-            cust.timeInStore += 1
-            cust.add_to_basket()
-            if cust.is_ready_to_checkout():
-                self.readyToCheckout.add(cust)
+    def new_customers_shop(self):
+        for cust in self.newCustomers:
+            cust.finish_shopping(self.time)
     
-    def move_ready_customers_to_checkout(self):
-        self.customersShopping -= self.readyToCheckout
-        for cust in self.readyToCheckout:
+    def move_new_customers_to_checkout(self):
+        for cust in self.newCustomers:
             cust.pick_shortest_line(self.cashiers).add_customer_to_line(cust)
             cust.startTime = self.time  
-        self.readyToCheckout = set()
+        self.newCustomers = []
     
     def finish_customer_checkout(self, cashier):
         finishedCust = cashier.most_resent_completed_customer()
@@ -135,20 +124,37 @@ class Store(object):
                 self.finish_customer_checkout(cashier)
             if cashier.currentCustomer == None:
                 self.move_next_in_line_to_register(cashier)
+    
+    def percent_of_total_customers_completed(self):
+        if self.totalNumOfCustomers > 0:
+            return len(self.completedCustomers)/self.totalNumOfCustomers
+        return 0.
                   
-    def run_simulation(self, numCashiers = 3, numSeconds = 10000):
+    def run_simulation(self, numCashiers = 3, totalSimulationTime = 5000):
+        assert self.customersPerMinute > 0
+        assert numCashiers == int(numCashiers)
         for cashier in range(numCashiers):
             self.add_cashier()
         
-        while self.time < numSeconds:
-            self.add_customer_to_store()
-            self.customers_shop()
-            self.move_ready_customers_to_checkout()
+        while self.time < totalSimulationTime:
+            if self.time % 60 == 0:
+                self.create_customers(self.customersPerMinute)
+                self.new_customers_shop()
+                self.move_new_customers_to_checkout()
+                self.totalNumOfCustomers += self.customersPerMinute
             self.checkout_customers()
             
             self.time += 1
             
         return self.completedCustomers
-        
-store = Store()
-store.run_simulation()
+    
+    def reset_store(self):
+        self.time                = 0  #seconds
+        self.numCashiers         = 0
+        self.totalNumOfCustomers = 0
+        self.cashiers            = []
+        self.newCustomers        = []
+        self.completedCustomers  = []
+
+
+
