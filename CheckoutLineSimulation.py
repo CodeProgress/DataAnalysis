@@ -30,6 +30,7 @@ class Cashier(object):
         self.currentCustomer    = None
         self.completedCustomers = []
         self.line               = Queue.Queue()
+        self.numInLine          = 0
         self.checkoutTime       = 0.
         self.cashierID          = ID
     
@@ -40,10 +41,18 @@ class Cashier(object):
                 self.completedCustomers.append(self.currentCustomer)
                 self.currentCustomer = None
                 return True
-        return False  
+        return False
+    
+    def move_next_in_line_to_register(self, time):
+        assert self.numInLine >= 0
+        if self.numInLine != 0:
+            self.currentCustomer = self.line.get()
+            self.currentCustomer.calc_time_on_line(time)
+            self.numInLine -= 1
             
     def add_customer_to_line(self, customer):
         self.line.put(customer)
+        self.numInLine += 1
     
     def most_resent_completed_customer(self):
         return self.completedCustomers[-1]
@@ -88,8 +97,9 @@ class Store(object):
         self.completedCustomers  = []
         
     def add_cashier(self): 
-        itemsPerSecond = 1 
-        newCashier = Cashier(itemsPerSecond, self.numCashiers)
+        itemsPerSecond = 1
+        ID = self.numCashiers
+        newCashier = Cashier(itemsPerSecond, ID)
         self.cashiers.append(newCashier)
         self.numCashiers += 1
     
@@ -112,18 +122,13 @@ class Store(object):
         finishedCust.calc_time_at_register(self.time)
         self.completedCustomers.append(finishedCust)
     
-    def move_next_in_line_to_register(self, cashier):
-        if not cashier.line.empty():
-            cashier.currentCustomer = cashier.line.get()
-            cashier.currentCustomer.calc_time_on_line(self.time)
-    
     def checkout_customers(self):
         for cashier in self.cashiers:
             isCheckoutComplete = cashier.checkout_customer()
             if isCheckoutComplete:
                 self.finish_customer_checkout(cashier)
             if cashier.currentCustomer == None:
-                self.move_next_in_line_to_register(cashier)
+                cashier.move_next_in_line_to_register(self.time)
     
     def percent_of_total_customers_completed(self):
         if self.totalNumOfCustomers > 0:
@@ -202,5 +207,5 @@ plot_effect_num_cashiers_on_cust_wait_time(20, 10)
 
 ##Performance Profile
 #store = Store()
-#cProfile.run('store.run_simulation()')
+#cProfile.run('store.run_simulation(5, 100000)')
 
