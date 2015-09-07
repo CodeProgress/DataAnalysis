@@ -1,43 +1,48 @@
 import random
-import collections
 import pylab as pl
+import numpy as np
 
 def naive_shuffle(elements):
     for i, element in enumerate(elements):
-        randIndex = random.randint(0, len(elements) - 1)
+        randIndex = np.random.randint(len(elements))
         elements[i], elements[randIndex] = elements[randIndex], elements[i]
     return elements
     
-def fishcer_yayes(elements):
+def fisher_yates_durstenfeld(elements):
+    upperIndex = len(elements)
+    while upperIndex > 0:
+        randomIndex = np.random.randint(upperIndex)
+        elements[randomIndex], elements[upperIndex-1] = elements[upperIndex-1], elements[randomIndex]    
+        upperIndex -= 1
+    return elements
+
+def built_in_python_shuffle(elements):
+    random.shuffle(elements)
+    return elements
+
+def crazy_shuffle(elements):
     pass
 
-def update_array(array, x_index, y_value):
-    pass
+def increment_outcome_array(array, x_index, y_value):
+    array[x_index][y_value] += 1
 
-numTrials = 10000
-histogram = collections.Counter()
-numElements = 100
+def draw_heat_plot_of_shuffle_algorithm(shuffleAlgorithm, numElements=100, numTrials=10000):
 
-for trial in xrange(numTrials):
-    elements = range(numElements)
+    outcomeArray = pl.array([[0]*numElements for i in range(numElements)])
 
-    shuffled = naive_shuffle(elements)
+    for trial in xrange(numTrials):
+        elements = range(numElements)
+    
+        shuffled = shuffleAlgorithm(elements)
 
-    indicesOfValues = [-1] * numElements
-    for finalIndex, val in enumerate(shuffled):
-         indicesOfValues[val] = finalIndex
-
-    histogram.update(zip(range(numElements),indicesOfValues))
-
-histArray = pl.array([[-1]*numElements for i in range(numElements)])
-
-for result in histogram:
-    finalIndex, val = result
-    histArray[finalIndex][val] = histogram[result]
+        for finalIndex, val in enumerate(shuffled):
+            increment_outcome_array(outcomeArray, finalIndex, val)
+    
+    pl.pcolor(outcomeArray)
+    pl.colorbar()
+    pl.show()
 
 
-pl.pcolor(histArray)
-pl.colorbar()
-pl.show()
-
-
+draw_heat_plot_of_shuffle_algorithm(naive_shuffle)
+#draw_heat_plot_of_shuffle_algorithm(fisher_yates_durstenfeld)
+#draw_heat_plot_of_shuffle_algorithm(built_in_python_shuffle)
