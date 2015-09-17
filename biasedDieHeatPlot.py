@@ -1,5 +1,6 @@
 import random
 import pylab
+import collections
 
 
 class die(object):
@@ -43,20 +44,39 @@ class biasedDieFavoringOneSide(die):
         return random.choice(self.otherSides)
         
 
+def plot_hist(listOfDice, numRolls=100000):
+    sums = collections.Counter()
+    
+    for roll in xrange(numRolls):
+        total = sum([die.roll() for die in listOfDice])
+        sums[total] += 1
+
+    pylab.plot(sums.keys(), sums.values())
+    pylab.show()
+
+
+def plot_heat(dieOne, dieTwo, numRolls=100000):
+    outcomeArray = pylab.array([[0]*numSides for i in xrange(numSides)])
+    for roll in xrange(numRolls):
+        outcomeOne = dieOne.roll()
+        outcomeTwo = dieTwo.roll()
+        outcomeArray[outcomeOne - 1][outcomeTwo - 1] += 1
+
+    pylab.pcolor(outcomeArray)
+    pylab.colorbar()
+    pylab.show()
+
+
 numSides = 6
 dieOne = die(numSides)
-dieTwo = biasedDieFavoringOneSide(numSides, 3, 50)
+dieTwo = die(numSides)
+biasedDieOne = biasedDieFavoringOneSide(numSides, 3, 100)
+biasedDieTwo = biasedDieFavoringOneSide(numSides, 2, 100)
 
-numRolls = 10000
-outcomeArray = pylab.array([[0]*numSides for i in xrange(numSides)])
+plot_hist([dieOne, dieTwo])
+#plot_heat(dieOne, dieTwo)
 
-for roll in xrange(numRolls):
-    outcomeOne = dieOne.roll()
-    outcomeTwo = dieTwo.roll()
-    
-    outcomeArray[outcomeOne - 1][outcomeTwo - 1] += 1
+plot_hist([biasedDieOne, biasedDieTwo])
+#plot_heat(biasedDieOne, biasedDieTwo)
 
-pylab.pcolor(outcomeArray)
-pylab.colorbar()
-pylab.show()
 
