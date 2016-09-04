@@ -91,15 +91,16 @@ def random_unique_xy_coords(num_trials):
     return xlist, ylist
 
 
-def plot_random_walk_function(random_walk_function, num_trials=1000):
-    xvals, yvals = random_walk_function(num_trials)
-    pylab.plot(xvals, yvals, '-o')
-    
-    pylab.plot(0, 0, color='green', marker='s')                # start point
-    pylab.plot(xvals[-1], yvals[-1], color='red', marker='8')  # end point
-    pylab.plot([0, xvals[-1]], [0, yvals[-1]], color='red')
-    
+def plot_random_walk_function(random_walk_function, num_trials=1000, num_walks=1):
+    for _ in range(num_walks):
+        xvals, yvals = random_walk_function(num_trials)
+        pylab.plot(xvals, yvals, '-o')
+        
+        pylab.plot(0, 0, color='green', marker='s')                # start point
+        pylab.plot(xvals[-1], yvals[-1], color='red', marker='8')  # end point
+        pylab.plot([0, xvals[-1]], [0, yvals[-1]], color='black')
+        
     pylab.show()
 
 
-plot_random_walk_function(random_walk)
+plot_random_walk_function(random_walk, 1000, 20)
