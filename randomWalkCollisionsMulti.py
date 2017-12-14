@@ -2,19 +2,27 @@ import pylab
 import random
 import collections
 
-def get_location_after_random_step(person, low_bound, high_bound):
-    x, y = person
+def get_location_after_random_step(current_location, low_bound, high_bound):
+    x, y = current_location
     x += random.randint(-1, 1)
     y += random.randint(-1, 1)
     
-    # bound walk
-    if x < low_bound: x = low_bound
-    elif x > high_bound: x = high_bound
-    if y < low_bound: y = low_bound
-    elif y > high_bound: y = high_bound
+    x, y = bounded_location(x, y, low_bound, high_bound)
     
     return x, y
     
+def bounded_location(x, y, low_bound, high_bound):
+    x = bound(x, low_bound, high_bound)
+    y = bound(y, low_bound, high_bound)
+    return x, y
+    
+def bound(dimension, low_bound, high_bound):
+    if dimension < low_bound: 
+        dimension = low_bound
+    elif dimension > high_bound: 
+        dimension = high_bound
+    return dimension
+
 def get_new_locations_after_all_people_randomly_step(people, low_bound, high_bound):
     new_people = []
     for person in people:
