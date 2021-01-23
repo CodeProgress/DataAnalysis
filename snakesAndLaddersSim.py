@@ -35,7 +35,7 @@ def climb_or_slide(current_position, snakes_dict, ladders_dict):
 def roll(num_sides=6):
     """ returns a random int between 1 and numSides, inclusive.
     """
-    # return random.randint(1, numSides) #slow
+    # return random.randint(1, num_sides)  # slow
     return int(random.random() * num_sides) + 1
 
 
@@ -65,7 +65,7 @@ def rel_freq_landings(num_games):
     return [landings[k]/count for k in range(0, 101)]
 
 
-def make_array(landing_list, start_val=100, row_size=10):
+def covert_to_2d_array(landing_list, start_val=100, row_size=10):
     val = start_val
     as_array = []
     desc = False  # descending if False, ascending if True
@@ -90,41 +90,51 @@ def label_board(snakes_dict, ladders_dict):
     to top left.  (the way an ox would plow a field.)
     And add arrows corresponding to snakes and ladders
     """
-    arrow_dict = {}
     for i in range(10):
         for j in range(10):
-            if i % 2 == 0:
-                if j == 9:
-                    ones = str(0)
-                    tens = str(i+1)
-                else: 
-                    ones = str(j+1)
-                    tens = str(i)
-            else:
-                if j == 0:
-                    ones = str(0)
-                    tens = str(i+1)
-                else:
-                    ones = str(10-j)
-                    tens = str(i)
-
-            plt.text(j+0.45, i+0.35, tens + ones,
+            coord = (i, j)
+            plt.text(j+0.45, i+0.35, get_sq_num(coord),
                      ha='center', va='bottom', color='w')
-            
-            # add coordinates to arrowDict for use when adding snakes and ladders
-            arrow_dict[int(tens+ones)] = (j+0.5, i+0.5)
-    
-    def add_arrows(a_dict, a_color):
-        for coord in a_dict:
-            x, y = arrow_dict[coord]
-            new_x, new_y = arrow_dict[a_dict[coord]]
-            dx, dy = new_x - x, new_y - y
-    
-            plt.arrow(x, y, dx, dy, head_length=0.3, head_width=0.20,
-                      color=a_color, linestyle="dotted", length_includes_head=True)
 
     add_arrows(snakes_dict, 'red')
     add_arrows(ladders_dict, '#00FF00')
+
+
+def add_arrows(a_dict, a_color):
+    for sq_num in a_dict:
+        tail_x, tail_y = get_coord(sq_num)
+        head_x, head_y = get_coord(a_dict[sq_num])
+
+        # offset coords, to center arrows in squares
+        tail_x += .5
+        tail_y += .5
+        head_x += .5
+        head_y += .5
+
+        dx, dy = head_x - tail_x, head_y - tail_y
+
+        # plot is ordered col, row
+        plt.arrow(tail_y, tail_x, dy, dx, head_length=0.3, head_width=0.20,
+                  color=a_color, linestyle="dotted", length_includes_head=True)
+
+
+def get_coord(sq_num):
+    row = (sq_num-1) // 10
+    if row % 2 == 0:
+        col = (sq_num - 1) % 10
+    else:
+        # odd numbered rows need to have reversed direction of vals since board is boustrophedon path
+        #  (the path an ox would plow a field.)
+        col = (10 - sq_num) % 10
+    return row, col
+
+
+def get_sq_num(coord):
+    row, col = coord
+    if row % 2 == 0:
+        return (row * 10) + (col + 1)
+    # odd numbered rows are reverse direction
+    return (row * 10) + (10 - col)
 
 
 def plot_heat(landings):
@@ -147,17 +157,12 @@ def plot_heat(landings):
     plt.axis('off')
     plt.title('Snakes and Ladders Heat Map for All Game Squares')
     
-    # add square numbers and snakes and ladders
+    # add square numbers, and snakes and ladders arrows
     label_board(snakes, ladders)
 
     plt.show()
 
 
-def run_c_profile(num_games=10000):
-    import cProfile
-    cProfile.run('make_array(rel_freq_landings(' + str(num_games) + '))')
-
-
 if __name__ == "__main__":
     num_games_to_simulate = 10000
-    plot_heat(make_array(rel_freq_landings(num_games_to_simulate)))
+    plot_heat(covert_to_2d_array(rel_freq_landings(num_games_to_simulate)))
