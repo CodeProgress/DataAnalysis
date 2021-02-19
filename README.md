@@ -1,7 +1,7 @@
 DataAnalysis
 ============
 
-###Examples:
+### Examples:
 
 - **Heat map** showing the relative frequency of landing on a given square in the board game Snakes and Ladders. 
   *snakesAndLaddersSim.py*

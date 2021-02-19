@@ -8,6 +8,19 @@ def walk_step(current_location, dx_dy):
     return x + dx, y + dy
 
 
+def turn_right(direction):
+    if direction == "n":
+        return "e"
+    if direction == "w":
+        return "n"
+    if direction == "s":
+        return "w"
+    if direction == "e":
+        return "s"
+
+
+nesw_mapper = {"n": (0, 1), "e": (1, 0), "s": (0, -1), "w": (-1, 0)}
+
 direction_mapper = {"1": (-1, 1), "2": (0, 1), "3": (1, 1),
                     "4": (-1, 0), "5": (0, 0), "6": (1, 0),
                     "7": (-1, -1), "8": (0, -1), "9": (1, -1),
@@ -26,11 +39,22 @@ direction_mapper = {"1": (-1, 1), "2": (0, 1), "3": (1, 1),
 num_digits = 100000
 pi_digits = "3" + str(sympy.N(sympy.pi, num_digits))[2:]
 
+direction = "w"
+
 random_walk = [(0, 0)]
 for num in pi_digits:
-    curr_location = random_walk[-1]
-    new_location = walk_step(curr_location, direction_mapper[num])
-    random_walk.append(new_location)
+    # # uncomment the below three lines to plot the "random" walk using direction_mapper
+    # curr_location = random_walk[-1]
+    # new_location = walk_step(curr_location, direction_mapper[num])
+    # random_walk.append(new_location)
+
+    # plot the "random" walk: Even digit walk one step, odd digit turn right.
+    if int(num) % 2 == 0:
+        curr_location = random_walk[-1]
+        new_location = walk_step(curr_location, nesw_mapper[direction])
+        random_walk.append(new_location)
+    else:
+        direction = turn_right(direction)
 
 seen = set()
 random_walk_no_duplicate_locations = []
